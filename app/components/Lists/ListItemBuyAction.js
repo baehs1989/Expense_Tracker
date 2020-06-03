@@ -4,12 +4,12 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../../config/colors";
 
-function ListItemDeleteAction({ onPress, size=70 }) {
+function ListBuyWishAction({ onPress, size=70 }) {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={[styles.container, {width:size}]}>
         <MaterialCommunityIcons
-          name="trash-can"
+          name="cash"
           size={size/2}
           color={colors.dark}
         />
@@ -20,11 +20,11 @@ function ListItemDeleteAction({ onPress, size=70 }) {
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: colors.danger,
+    // backgroundColor: 'blue',
     width: 70,
     justifyContent: "center",
     alignItems: "center",
   },
 });
 
-export default ListItemDeleteAction;
+export default ListBuyWishAction;

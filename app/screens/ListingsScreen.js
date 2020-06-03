@@ -8,6 +8,7 @@ import Screen from "../components/Screen";
 import {
   EventItem,
   ListItemDeleteAction,
+  ListItemWishAction,
   ListItemSeparator,
 } from "../components/Lists";
 
@@ -57,7 +58,7 @@ function ListingsScreen(props) {
             }
             onPress={() => console.log("Message selected", item)}
             renderRightActions={() => (
-              <ListItemDeleteAction onPress={() => handleDelete(item)} />
+                <ListItemDeleteAction key="delete1" onPress={() => console.log("Delete")} />
             )}
           />
         )}
