@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { FlatList, StyleSheet } from "react-native";
 import Icon from '../components/Icon'
-import {FontAwesome} from '@expo/vector-icons'
 
 import Screen from "../components/Screen";
 
 import {
   EventItem,
-  ListItemDeleteAction,
-  ListItemWishAction,
   ListItemSeparator,
 } from "../components/Lists";
+
+import ListItemDeleteAction from '../components/Lists/ListItemDeleteAction'
 
 const initialMessages = [
   {
@@ -58,7 +57,7 @@ function ListingsScreen(props) {
             }
             onPress={() => console.log("Message selected", item)}
             renderRightActions={() => (
-                <ListItemDeleteAction key="delete1" onPress={() => console.log("Delete")} />
+                <ListItemDeleteAction onPress={() => console.log("Delete")} />
             )}
           />
         )}

@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
+import { Searchbar } from 'react-native-paper';
+import {FontAwesome} from '@expo/vector-icons'
+
 import AppText from '../components/AppText';
+import AppButton from '../components/AppButton';
+import Screen from "../components/Screen";
+
 import defaultStyles from '../config/styles';
 
-import Screen from "../components/Screen";
+
 
 import {
   ShoppingItem,
@@ -43,7 +49,16 @@ function ShoppingListScreen(props) {
 
   return (
     <Screen>
+        <View style={styles.searchBar}>
+            <Searchbar
+                placeholder="Type Here..."
+                onChangeText={()=>{}}
+                value={""}
+            />
+        </View>
+
       <View style={styles.headerContainer}>
+
         <View style={styles.nameContainer}>
             <AppText style={styles.name}>
                 Name
@@ -59,6 +74,9 @@ function ShoppingListScreen(props) {
                 Note
             </AppText>
         </View>
+        <View style={styles.filter}>
+            <FontAwesome name="filter" size={23}/>
+        </View>
       </View>
 
       <FlatList
@@ -70,23 +88,32 @@ function ShoppingListScreen(props) {
             quantity={item.quantity}
             note={item.note}
             status={item.status}
-            renderRightActions={() => (
-                [
-                    <ListItemDeleteAction key="delete" onPress={() => console.log("Delete")} />,
-                    <ListItemEditAction key="edit" size={60} onPress={() => console.log("Edit")}/>,
-                    <ListItemWishAction key="wish" size={60} onPress={() => console.log("Wish")}/>,
-                    <ListItemBuyAction key="buy" onPress={() => console.log("Buy")} />
-                ]
-            )}
+            renderRightOnPress={{
+                onDelete: () => console.log('Delete'),
+                onEdit : () => console.log("Edit"),
+                onWish : () => console.log("Wish"),
+                onBuy : () => console.log("Buy")
+            }}
+            onLeftSwipe={{
+                onBuy : () => console.log("Buy")
+            }}
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}
       />
+
+      <View style={styles.buttonContainer}>
+        <AppButton title="" style={{width:100}} IconComponent={<FontAwesome name="plus-circle" size={20}/>}/>
+      </View>
+      
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
+    searchBar:{
+        flexDirection:'column',
+    },
     headerContainer:{
         flexDirection:'row',
         padding:10,
@@ -111,6 +138,14 @@ const styles = StyleSheet.create({
     },
     note:{
         fontWeight:'bold'
+    },
+    filter:{
+        flex:1, 
+        alignItems:'flex-end',
+        paddingRight:10
+    },
+    buttonContainer:{
+        alignItems:'center'
     }
 
 });
