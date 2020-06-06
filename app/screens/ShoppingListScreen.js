@@ -44,27 +44,35 @@ const filters = [
     }
 ]
 
+//status : pending, wish, bought
+//          1        2       3
 const initialItems = [
     {
         id: 1,
+        createdby:"",
+        buyer:"",
         name: "Toilet Paper",
         quantity: 2,
         note: "Don't buy too much. Don't buy too much. Don't buy too much. Don't buy too much. ",
-        status: 'pending',
+        status: 1,
     },
     {
         id: 2,
+        createdby:"",
+        buyer:"Alex Bae",
         name: "Eggs Eggs EggsEggs EggsEggsEggs Eggs EggsEggsEggs",
         quantity: 1,
         note: "12 ones",
-        status: 'pending',
+        status: 2,
     },
     {
         id: 3,
+        createdby:"",
+        buyer:"",
         name: "Battery",
         quantity: 2,
         note: "AAA",
-        status: 'pending',
+        status: 1,
     },
 ];
 
@@ -127,28 +135,32 @@ function ShoppingListScreen(props) {
             <FlatList
                 data={items}
                 keyExtractor={(item) => item.id.toString()}
-                renderItem={({ item }) => (
-                    <ShoppingItem
-                        name={item.name}
-                        quantity={item.quantity}
-                        note={item.note}
-                        status={item.status}
-                        renderRightOnPress={{
-                            onDelete: () => console.log('Delete'),
-                            onEdit: () => console.log("Edit"),
-                            onWish: () => console.log("Wish"),
-                            onBuy: () => console.log("Buy")
-                        }}
-                        onLeftSwipe={{
-                            onBuy: () => console.log("Buy")
-                        }}
-                    />
-                )}
+                renderItem={({ item }) => {
+                    return(
+                        <ShoppingItem
+                            name={item.name}
+                            quantity={item.quantity}
+                            note={item.note}
+                            status={item.status}
+                            buyer={item.buyer}
+                            renderRightOnPress={{
+                                onDelete: () => console.log('Delete'),
+                                onEdit: () => console.log("Edit"),
+                                onWish: () => console.log("Wish"),
+                                onBuy: () => console.log("Buy")
+                            }}
+                            onLeftSwipe={{
+                                onBuy: () => console.log("Buy")
+                            }}
+                            disabled = {item.status !== 1 ? true : false}
+                        />
+                    )
+                }}
                 ItemSeparatorComponent={ListItemSeparator}
             />
 
             <View style={styles.buttonContainer}>
-                <AppButton title="" style={{ width: 100 }} IconComponent={<FontAwesome name="plus-circle" size={20} />} />
+                <AppButton title="" style={{ width: 100 }} IconComponent={<FontAwesome name="plus-circle" size={25} />} />
             </View>
 
         </Screen>

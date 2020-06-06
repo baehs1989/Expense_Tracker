@@ -13,7 +13,6 @@ import colors from "../../../config/colors";
 import ListItemDeleteAction from '../ListItemDeleteAction'
 import ListItemEditAction from '../ListItemEditAction'
 import ListItemWishAction from '../ListItemWishAction'
-import ListItemBuyAction from '../ListItemBuyAction'
 
 //extended version from ListItem(default)
 function ShoppingItem({
@@ -22,23 +21,32 @@ function ShoppingItem({
   note,
   onLeftSwipe,
   renderRightOnPress,
+  disabled,
+  buyer,
   status
 }) {
 
   const rowRef = useRef();
 
-  const renderRightActions= () => (
-    [
-        <ListItemDeleteAction key="delete" size={50} onPress={()=>{onClose(); renderRightOnPress.onDelete()}} />,
-        <ListItemEditAction key="edit" size={50} onPress={()=>{onClose(); renderRightOnPress.onEdit()}}/>,
-        <ListItemWishAction key="wish" size={50} onPress={()=>{onClose(); renderRightOnPress.onWish()}}/>,
-        <ListItemBuyAction key="buy" size={50} onPress={()=>{onClose(); renderRightOnPress.onBuy()}} />
-    ]
-  )
+  const renderRightActions= () => {
+    if (disabled) return <View style={{width:"30%", justifyContent:'center'}}><AppText>{buyer}</AppText></View>
 
-  const renderLeftActions= () => (
-    <View style={{flex:1}}></View>
-  )
+    return (
+      [
+          <ListItemDeleteAction key="delete" size={50} onPress={()=>{onClose(); renderRightOnPress.onDelete()}} />,
+          <ListItemEditAction key="edit" size={50} onPress={()=>{onClose(); renderRightOnPress.onEdit()}}/>,
+          <ListItemWishAction key="wish" size={50} onPress={()=>{onClose(); renderRightOnPress.onWish()}}/>,      ]
+    )
+  
+  }
+  
+  const renderLeftActions= () => {
+    if (disabled) return null
+
+    return (
+      <View style={{flex:1}}></View>
+    )
+  }
 
   const onClose = () => {
     onLeftSwipe.onBuy();
@@ -46,22 +54,26 @@ function ShoppingItem({
   }
 
   return (
-    <Swipeable ref={rowRef} renderRightActions={renderRightActions} renderLeftActions={renderLeftActions} onSwipeableLeftOpen={onClose}>
+    <Swipeable ref={rowRef} 
+      renderRightActions={renderRightActions} 
+      renderLeftActions={renderLeftActions} 
+      onSwipeableLeftOpen={onClose}
+    >
       <TouchableHighlight underlayColor={colors.light} onPress={()=>{}}>
-        <View style={styles.container}>
+        <View style={[styles.container, disabled?styles.container_disabled:{}]}>
             <View style={styles.detailsContainer}>
                 <View style={styles.nameContainer}>
-                    <AppText style={styles.name} numberOfLines={1}>
+                    <AppText style={[styles.name, disabled?styles.text_disabled:{}]} numberOfLines={1}>
                         {name}
                     </AppText>
                 </View>
                 <View style={styles.quantityContainer}>
-                    <AppText style={styles.quantity}>
+                    <AppText style={[styles.quantity, disabled?styles.text_disabled:{}]}>
                         {quantity}
                     </AppText>
                 </View>
                 <View style={styles.noteContainer}>
-                    <AppText style={styles.note} numberOfLines={1}>
+                    <AppText style={[styles.note, disabled?styles.text_disabled:{}]} numberOfLines={1}>
                         {note}
                     </AppText>
                 </View>
@@ -73,6 +85,12 @@ function ShoppingItem({
 }
 
 const styles = StyleSheet.create({
+    container_disabled:{
+      opacity:0.5
+    },
+    text_disabled:{
+      color:colors.light
+    },
     container: {
         alignItems: "center",
         flexDirection: "row",
