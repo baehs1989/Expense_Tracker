@@ -7,7 +7,7 @@ import AppModal from '../components/AppModal';
 
 function FilterModal({visible, filters, onSelect, onCancel, onOk, selected}){
   return (
-    <AppModal visible={visible} onCancel={onCancel} onOk={onOk} innerContainerStyle={{alignSelf:'flex-end', marginBottom:40, width:'100%'}}>
+    <AppModal visible={visible} onCancel={onCancel} onOk={onOk} innerContainerStyle={{alignSelf:'flex-end', width:'100%'}}>
         <Container>
             <Content>
                 {
