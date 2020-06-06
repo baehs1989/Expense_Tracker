@@ -1,20 +1,20 @@
 import React from "react";
-import { View, StyleSheet, TouchableWithoutFeedback } from "react-native";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../../config/colors";
 
 function ListItemWishAction({ onPress, size=70 }) {
   return (
-    <TouchableWithoutFeedback onPress={onPress}>
-      <View style={[styles.container, {width:size}]}>
+    <TouchableOpacity style={[styles.container, {width:size}]} onPress={onPress}>
+      <View>
         <MaterialCommunityIcons
           name="heart-outline"
           size={size/2}
           color={colors.dark}
         />
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableOpacity>
   );
 }
 
