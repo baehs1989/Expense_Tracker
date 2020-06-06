@@ -1,14 +1,18 @@
 import React from 'react';
-import { Container, Header, Content, ListItem, Text, Radio, Right, Left, Footer } from 'native-base';
 import {View, StyleSheet, Modal} from 'react-native';
 
 import defaultStyles from '../config/styles';
+import TextButton from '../components/Buttons/TextButton'
 
-function AppModal({visible, innerContainerStyle, children ,transparent=true, animationType="slide" }){
+function AppModal({visible, onCancel, onOk, outerContainerStyle, innerContainerStyle, children ,transparent=true, animationType="slide" }){
   return (
     <Modal visible={visible} transparent={transparent} animationType={animationType}>
-        <View style={styles.outerContainer}>
+        <View style={[styles.outerContainer, outerContainerStyle]}>
             <View style={[styles.innerContainer, innerContainerStyle]}>
+                <View style={styles.actionButtons}>
+                    <TextButton title="Ok" size={17} backgroundColor="rgba(52, 52, 52, 0)" textColor={defaultStyles.colors.dark} onPress={onOk}/>
+                    <TextButton title="Cancel" size={17} backgroundColor="rgba(52, 52, 52, 0)" textColor={defaultStyles.colors.dark} onPress={onCancel}/>
+                </View>
                 {children}
             </View>
         </View>
@@ -19,7 +23,7 @@ function AppModal({visible, innerContainerStyle, children ,transparent=true, ani
 const styles = StyleSheet.create({
     outerContainer : {
         flex: 1,
-        flexDirection: 'column',
+        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'rgba(0,0,0,0.5)'
@@ -30,6 +34,11 @@ const styles = StyleSheet.create({
         backgroundColor:defaultStyles.colors.lighter,
         borderRadius:10,
         padding:10
+    },
+    actionButtons:{
+        marginBottom:10,
+        flexDirection:'row',
+        justifyContent:"space-between"
     }
 });
 

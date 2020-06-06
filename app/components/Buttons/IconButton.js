@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import { MaterialCommunityIcons, FontAwesome } from "@expo/vector-icons";
 
 function IconButton({

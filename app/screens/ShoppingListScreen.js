@@ -4,15 +4,12 @@ import { Searchbar } from 'react-native-paper';
 import { FontAwesome } from '@expo/vector-icons';
 
 import AppText from '../components/AppText';
-import AppButton from '../components/AppButton';
+import AppButton from '../components/Buttons/AppButton';
 import Screen from "../components/Screen";
-import IconButton from '../components/IconButton';
+import IconButton from '../components/Buttons/IconButton';
 import FilterModal from '../components/FilterModal';
 
 import defaultStyles from '../config/styles';
-
-
-
 
 
 import {
@@ -28,6 +25,22 @@ const filters = [
     {
         id:'filter1',
         label:'Filter 1'
+    },
+    {
+        id:'filter2',
+        label:'Filter 2'
+    },
+    {
+        id:'filter3',
+        label:'Filter 3'
+    },
+    {
+        id:'filter4',
+        label:'Filter 4'
+    },
+    {
+        id:'filter5',
+        label:'Filter 5'
     }
 ]
 
@@ -57,10 +70,12 @@ const initialItems = [
 
 function ShoppingListScreen(props) {
     const [items, setItems] = useState(initialItems);
+    const [selectedItem, setSelectedItem] = useState('default')
     const [openFilter, setOpenFilter] = useState(false)
 
     const onFilterSelect = id => {
-        console.log(id)
+        setSelectedItem(id)
+        setOpenFilter(false)
     }
 
     return (
@@ -98,11 +113,12 @@ function ShoppingListScreen(props) {
                     />
 
                     <FilterModal
-                        selected={"default"}
+                        selected={selectedItem}
                         visible={openFilter}
                         filters = {filters}
                         onSelect = {onFilterSelect}
-                        onCancel = {()=>console.log('cancel')}
+                        onCancel = {()=>setOpenFilter(false)}
+                        onOk = {()=>setOpenFilter(false)}
                     />
 
                 </View>

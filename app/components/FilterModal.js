@@ -5,9 +5,9 @@ import {View, StyleSheet} from 'react-native';
 import AppText from '../components/AppText';
 import AppModal from '../components/AppModal';
 
-function FilterModal({visible, filters, onSelect, selected}){
+function FilterModal({visible, filters, onSelect, onCancel, onOk, selected}){
   return (
-    <AppModal visible={visible}>
+    <AppModal visible={visible} onCancel={onCancel} onOk={onOk} innerContainerStyle={{alignSelf:'flex-end', marginBottom:40, width:'100%'}}>
         <Container>
             <Content>
                 {
@@ -25,11 +25,11 @@ function FilterModal({visible, filters, onSelect, selected}){
                     })
                 }
             </Content>
-            <Footer>
+            {/* <Footer>
                 <View style={{justifyContent:'center'}}>
                     <AppText>Cancel</AppText>
                 </View>
-            </Footer>
+            </Footer> */}
         </Container>
     </AppModal>
 
