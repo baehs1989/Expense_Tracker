@@ -1,13 +1,16 @@
 import React from 'react';
-import {View, StyleSheet, Modal, TouchableOpacity} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+
+import Modal from 'react-native-modal';
 
 import defaultStyles from '../config/styles';
 import TextButton from '../components/Buttons/TextButton'
+import AppText from './AppText';
+import AppButton from './Buttons/AppButton';
 
-function AppModal({visible, onCancel, onOk, outerContainerStyle, innerContainerStyle, children ,transparent=true, animationType="slide" }){
+function AppModal({visible, onCancel, onOk, innerContainerStyle, children ,transparent=true, animationType="slide" }){
   return (
-    <Modal visible={visible} transparent={transparent} animationType={animationType}>
-        <View style={[styles.outerContainer, outerContainerStyle]} >
+    <Modal isVisible={visible} onBackdropPress={onCancel} style={styles.modal}>
             <View style={[styles.innerContainer, innerContainerStyle]}>
                 {
                     onCancel && onOk && 
@@ -16,23 +19,19 @@ function AppModal({visible, onCancel, onOk, outerContainerStyle, innerContainerS
                         <TextButton title="Done" size={17} backgroundColor="rgba(52, 52, 52, 0)" textColor={defaultStyles.colors.dark} onPress={onOk}/>
                     </View>
                 }
-
                 {children}
-                
             </View>
-        </View>
     </Modal>
+
+
   );
 }
 
 const styles = StyleSheet.create({
-    outerContainer : {
-        // backgroundColor:'red',
-        flex: 1,
-        flexDirection: 'column',
+    modal:{
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'rgba(0,0,0,0.5)'
+        margin: 0,
     },
     innerContainer:{
         width: 300,
