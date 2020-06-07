@@ -92,7 +92,7 @@ function ShoppingListScreen(props) {
         <Screen>
             <View style={styles.searchBar}>
                 <Searchbar
-                    placeholder="Type Here..."
+                    placeholder="Search"
                     onChangeText={() => {}}
                     value={""}
                 />
