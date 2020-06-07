@@ -8,6 +8,8 @@ import AppButton from '../components/Buttons/AppButton';
 import Screen from "../components/Screen";
 import IconButton from '../components/Buttons/IconButton';
 import FilterModal from '../components/FilterModal';
+import AppModal from '../components/AppModal';
+import ShoppingItemForm from '../components/ShoppingItemForm'
 
 import defaultStyles from '../config/styles';
 
@@ -80,10 +82,10 @@ function ShoppingListScreen(props) {
     const [items, setItems] = useState(initialItems);
     const [selectedItem, setSelectedItem] = useState('default')
     const [openFilter, setOpenFilter] = useState(false)
+    const [openForm, setOpenForm] = useState(false)
 
     const onFilterSelect = id => {
         setSelectedItem(id)
-        setOpenFilter(false)
     }
 
     return (
@@ -160,8 +162,12 @@ function ShoppingListScreen(props) {
             />
 
             <View style={styles.buttonContainer}>
-                <AppButton title="" style={{ width: 100 }} IconComponent={<FontAwesome name="plus-circle" size={25} />} />
+                <AppButton title="" onPress={()=>setOpenForm(true)} style={{ width: 150 }} IconComponent={<FontAwesome name="plus-circle" size={25} />} />
             </View>
+
+            <AppModal visible={openForm} onCancel={()=>setOpenForm(false)} innerContainerStyle={{width:'90%', height:'50%'}}>
+                <ShoppingItemForm/>
+            </AppModal>
 
         </Screen>
     );

@@ -5,6 +5,7 @@ import ListingsScreen from './app/screens/ListingsScreen'
 import AccountScreen from './app/screens/AccountScreen'
 import ListDetailScreen from './app/screens/ListDetailScreen';
 import ShoppingListScreen from './app/screens/ShoppingListScreen';
+import ShoppingItemForm from './app/components/ShoppingItemForm';
 
 export default function App() {
   return (  
