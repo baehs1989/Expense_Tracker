@@ -121,17 +121,17 @@ function ShoppingListScreen(props) {
                         name="filter"
                         size={20}
                     />
-
-                    <FilterModal
-                        selected={selectedItem}
-                        visible={openFilter}
-                        filters = {filters}
-                        onSelect = {onFilterSelect}
-                        onCancel = {()=>setOpenFilter(false)}
-                        onOk = {()=>setOpenFilter(false)}
-                    />
-
                 </View>
+
+                <FilterModal
+                    selected={selectedItem}
+                    visible={openFilter}
+                    filters = {filters}
+                    onSelect = {onFilterSelect}
+                    onCancel = {()=>setOpenFilter(false)}
+                    onOk = {()=>setOpenFilter(false)}
+                />
+
             </View>
 
             <FlatList
@@ -169,12 +169,10 @@ function ShoppingListScreen(props) {
 
             <AppModal 
                 visible={openForm} 
-                onOk={()=>setOpenForm(false)}
-                onCancel={()=>setOpenForm(false)} 
                 innerContainerStyle={{width:'100%', height:'100%'}}
                 buttonLocation="bottom"
             >
-                <ShoppingItemForm/>
+                <ShoppingItemForm onSubmit={()=>setOpenForm(false)}/>
             </AppModal>
 
         </Screen>

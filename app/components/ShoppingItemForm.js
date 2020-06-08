@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, TouchableOpacity, Keyboard} from 'react-native';
 import {Formik} from 'formik';
 import * as Yup from "yup";
 
@@ -12,17 +12,17 @@ const validationSchema = Yup.object().shape({
     note: Yup.string().label("Note"),
 });
 
-function ShoppingItemForm(props){
+function ShoppingItemForm({onSubmit}){
   return (
       <Screen>
         <Formik
             initialValues={{ name: "", quantity: "", note: "" }}
-            onSubmit={(values) => console.log(values)}
+            onSubmit={()=>onSubmit()}
             validationSchema={validationSchema}
         >
             {() => 
                 <>
-                    <View style={styles.container}>
+                    <TouchableOpacity activeOpacity={1} style={styles.container} onPressIn={Keyboard.dismiss}>
                         <View>
                             <FormField
                                 autoCorrect={false}
@@ -44,10 +44,10 @@ function ShoppingItemForm(props){
                             />
                         </View>
 
-                        {/* <View style={styles.buttonContainer}>
+                        <View style={styles.buttonContainer}>
                             <SubmitButton title="Add" />
-                        </View> */}
-                    </View>
+                        </View>
+                    </TouchableOpacity>
                 </>
             }
 
