@@ -3,8 +3,8 @@ import {StyleSheet, View, TouchableOpacity, Keyboard} from 'react-native';
 import {Formik} from 'formik';
 import * as Yup from "yup";
 
-import {FormField, SubmitButton} from './forms'
-import Screen from '../components/Screen'
+import {FormField, SubmitButton} from './'
+import Screen from '../Screen'
 
 const validationSchema = Yup.object().shape({
     name: Yup.string().required().label("Name"),

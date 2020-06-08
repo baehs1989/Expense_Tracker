@@ -9,7 +9,7 @@ import Screen from "../components/Screen";
 import IconButton from '../components/Buttons/IconButton';
 import FilterModal from '../components/FilterModal';
 import AppModal from '../components/AppModal';
-import ShoppingItemForm from '../components/ShoppingItemForm'
+import ShoppingItemForm from '../components/forms/ShoppingItemForm'
 
 import defaultStyles from '../config/styles';
 
