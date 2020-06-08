@@ -29,7 +29,7 @@ function ShoppingItem({
   const rowRef = useRef();
 
   const renderRightActions= () => {
-    if (disabled) return <View style={{width:"30%", justifyContent:'center'}}><AppText>{buyer}</AppText></View>
+    if (disabled) return <View style={styles.buyerContainer}><AppText style={{textAlign:'center'}}>{buyer}</AppText></View>
 
     return (
       [
@@ -118,6 +118,11 @@ const styles = StyleSheet.create({
     },
     note:{
 
+    },
+    buyerContainer:{
+      width:120,
+      flexDirection:'row',
+      alignItems:'center'
     }
 });
 
