@@ -169,8 +169,9 @@ function ShoppingListScreen(props) {
 
             <AppModal 
                 visible={openForm} 
-                innerContainerStyle={{width:'100%', height:'100%'}}
-                buttonLocation="bottom"
+                innerContainerStyle={{width:'100%', height:'90%'}}
+                buttonLocation="top"
+                onCancel={()=>setOpenForm(false)}
             >
                 <ShoppingItemForm onSubmit={()=>setOpenForm(false)}/>
             </AppModal>

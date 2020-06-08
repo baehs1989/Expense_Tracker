@@ -11,13 +11,10 @@ function AppModal({visible, onCancel, onOk, innerContainerStyle, children, anima
     <Modal isVisible={visible} onBackdropPress={onCancel} style={styles.modal} animationType={animationType}>
             <View style={[styles.innerContainer, innerContainerStyle]}>
                 {buttonLocation==='bottom' && children}
-                {
-                    onCancel && onOk && 
-                    <View style={styles.actionButtons}>
-                        <TextButton title="Cancel" size={17} backgroundColor="rgba(52, 52, 52, 0)" textColor={defaultStyles.colors.dark} onPress={onCancel}/>
-                        <TextButton title="Done" size={17} backgroundColor="rgba(52, 52, 52, 0)" textColor={defaultStyles.colors.dark} onPress={onOk}/>
-                    </View>
-                }
+                <View style={styles.actionButtons}>
+                    {onCancel && <TextButton title="Cancel" size={17} backgroundColor="rgba(52, 52, 52, 0)" textColor={defaultStyles.colors.dark} onPress={onCancel}/>}
+                    {onOk && <TextButton title="Done" size={17} backgroundColor="rgba(52, 52, 52, 0)" textColor={defaultStyles.colors.dark} onPress={onOk}/>}
+                </View>
                 {buttonLocation==='top' && children}
             </View>
     </Modal>
