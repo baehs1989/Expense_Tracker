@@ -5,13 +5,12 @@ import Modal from 'react-native-modal';
 
 import defaultStyles from '../config/styles';
 import TextButton from '../components/Buttons/TextButton'
-import AppText from './AppText';
-import AppButton from './Buttons/AppButton';
 
-function AppModal({visible, onCancel, onOk, innerContainerStyle, children ,transparent=true, animationType="slide" }){
+function AppModal({visible, onCancel, onOk, innerContainerStyle, children, animationType="slide", buttonLocation="top" }){
   return (
-    <Modal isVisible={visible} onBackdropPress={onCancel} style={styles.modal}>
+    <Modal isVisible={visible} onBackdropPress={onCancel} style={styles.modal} animationType={animationType}>
             <View style={[styles.innerContainer, innerContainerStyle]}>
+                {buttonLocation==='bottom' && children}
                 {
                     onCancel && onOk && 
                     <View style={styles.actionButtons}>
@@ -19,7 +18,7 @@ function AppModal({visible, onCancel, onOk, innerContainerStyle, children ,trans
                         <TextButton title="Done" size={17} backgroundColor="rgba(52, 52, 52, 0)" textColor={defaultStyles.colors.dark} onPress={onOk}/>
                     </View>
                 }
-                {children}
+                {buttonLocation==='top' && children}
             </View>
     </Modal>
 

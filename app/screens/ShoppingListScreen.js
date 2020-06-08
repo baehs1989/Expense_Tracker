@@ -161,11 +161,19 @@ function ShoppingListScreen(props) {
                 ItemSeparatorComponent={ListItemSeparator}
             />
 
-            <View style={styles.buttonContainer}>
+            <View 
+                style={styles.buttonContainer}
+            >
                 <AppButton title="" onPress={()=>setOpenForm(true)} style={{ width: 150 }} IconComponent={<FontAwesome name="plus-circle" size={25} />} />
             </View>
 
-            <AppModal visible={openForm} onCancel={()=>setOpenForm(false)} innerContainerStyle={{width:'90%', height:'50%'}}>
+            <AppModal 
+                visible={openForm} 
+                onOk={()=>setOpenForm(false)}
+                onCancel={()=>setOpenForm(false)} 
+                innerContainerStyle={{width:'100%', height:'100%'}}
+                buttonLocation="bottom"
+            >
                 <ShoppingItemForm/>
             </AppModal>
 

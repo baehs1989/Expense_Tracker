@@ -44,9 +44,9 @@ function ShoppingItemForm(props){
                             />
                         </View>
 
-                        <View style={styles.buttonContainer}>
+                        {/* <View style={styles.buttonContainer}>
                             <SubmitButton title="Add" />
-                        </View>
+                        </View> */}
                     </View>
                 </>
             }
