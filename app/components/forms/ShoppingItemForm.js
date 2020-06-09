@@ -28,12 +28,14 @@ function ShoppingItemForm({onSubmit}){
                                 autoCorrect={false}
                                 name="name"
                                 placeholder="Name"
+                                style={styles.field}
                             />
                             <FormField
                                 autoCorrect={false}
                                 name="quantity"
                                 placeholder="Quantity"
                                 keyboardType="numeric"
+                                style={styles.field}
                             />
                             <FormField
                                 autoCorrect={false}
@@ -41,6 +43,7 @@ function ShoppingItemForm({onSubmit}){
                                 placeholder="Note"
                                 style={{height:100}}
                                 multiline={true}
+                                style={styles.field}
                             />
                         </View>
 
@@ -64,6 +67,9 @@ const styles = StyleSheet.create({
         justifyContent:"space-between"
     },
     buttonContainer:{
+    },
+    field:{
+        flex:1
     }
 });
 

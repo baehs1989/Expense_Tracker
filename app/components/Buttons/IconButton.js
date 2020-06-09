@@ -7,19 +7,18 @@ function IconButton({
     onPress,
     size=10,
     type="MaterialCommunityIcons",
-    backgroundColor = "#000",
     iconColor = "#fff",
+    style
 })
 {
   var properties = {
       name:name,
       size:size,
-      backgroundColor:backgroundColor,
       iconColor:iconColor
   }
 
   return (
-    <TouchableOpacity onPress={()=>onPress()}>
+    <TouchableOpacity onPress={()=>onPress()} style={style}>
         {type==="MaterialCommunityIcons" && <MaterialCommunityIcons {...properties} />}
         {type==='FontAwesome' && <FontAwesome {...properties}/>}
     </TouchableOpacity>

@@ -5,9 +5,10 @@ import ListingsScreen from './app/screens/ListingsScreen'
 import AccountScreen from './app/screens/AccountScreen'
 import ListDetailScreen from './app/screens/ListDetailScreen';
 import ShoppingListScreen from './app/screens/ShoppingListScreen';
+import ShoppingItemDetail from './app/screens/ShoppingItemDetail'
 
 export default function App() {
   return (  
-    <ShoppingListScreen/>
+    <ShoppingItemDetail/>
   );
 }
