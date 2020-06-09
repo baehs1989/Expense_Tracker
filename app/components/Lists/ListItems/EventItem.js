@@ -24,6 +24,7 @@ function EventItem({
         <View style={styles.container}>
           {IconComponent}
           {image && <Image style={styles.image} source={image} />}
+
           <View style={styles.detailsContainer}>
 
             <View style={styles.headerContainer}>
@@ -33,8 +34,8 @@ function EventItem({
                     </AppText>
                 </View>
                 <View style={styles.membersContainer}>
-                    <AppText style={styles.members}>
-                    <FontAwesome name="user" color={styles.members.color} size={defaultStyles.text.fontSize}/> {members}
+                    <AppText style={styles.members} numberOfLines={1}>
+                      <FontAwesome name="user" color={styles.members.color} size={defaultStyles.text.fontSize}/> {members}
                     </AppText>
                 </View>
             </View>
@@ -46,11 +47,12 @@ function EventItem({
             )}
 
           </View>
-          <MaterialCommunityIcons
+
+          {/* <MaterialCommunityIcons
             color={colors.medium}
             name="chevron-right"
             size={25}
-          />
+          /> */}
         </View>
       </TouchableHighlight>
     </Swipeable>
@@ -78,15 +80,18 @@ const styles = StyleSheet.create({
     color: colors.medium,
   },
   headerContainer:{
-    flexDirection:"row"
+    flexDirection:"row",
   },
   titleContainer:{
-    flex:1
+    width:'75%'
   },
   title: {
     fontWeight: "500"
   },
   membersContainer:{
+    paddingLeft:10,
+    width:'25%',
+    alignItems:'flex-end'
   },
   members:{
       color:colors.light

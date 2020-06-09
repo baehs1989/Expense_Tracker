@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { FlatList, StyleSheet } from "react-native";
-import Icon from '../components/Icon'
+import { FlatList, StyleSheet,View } from "react-native";
+import { FontAwesome } from '@expo/vector-icons';
 
+import Icon from '../components/Icon'
 import Screen from "../components/Screen";
+import AppButton from '../components/Buttons/AppButton'
 
 import {
   EventItem,
@@ -14,9 +16,9 @@ import ListItemDeleteAction from '../components/Lists/ListItemDeleteAction'
 const initialMessages = [
   {
     id: 1,
-    title: " 26 Olive Ave.",
+    title: " 26 Olive Ave.26 Olive Ave.26 Olive Ave.26 Olive Ave.26 Olive Ave.",
     description: "Alex Bae, Shin Yeong Kim",
-    members:2,
+    members:999,
     type:'home',
     color:'darkseagreen'
   },
@@ -64,10 +66,20 @@ function ListingsScreen(props) {
         ItemSeparatorComponent={ListItemSeparator}
         refreshing={refreshing}
       />
+
+      <View style={styles.buttonContainer}>
+          <AppButton title="" onPress={()=>{}} style={{ width: 150 }} IconComponent={<FontAwesome name="plus-circle" size={25} />} />
+      </View>
+
+
     </Screen>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  buttonContainer: {
+    alignItems: 'center'
+  }
+});
 
 export default ListingsScreen;
