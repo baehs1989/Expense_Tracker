@@ -9,6 +9,6 @@ import ShoppingItemDetail from './app/screens/ShoppingItemDetail'
 
 export default function App() {
   return (  
-    <ListingsScreen/>
+    <ShoppingListScreen/>
   );
 }
