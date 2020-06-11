@@ -6,9 +6,9 @@ import Modal from 'react-native-modal';
 import defaultStyles from '../config/styles';
 import TextButton from '../components/Buttons/TextButton'
 
-function AppModal({visible, onCancel, onOk, innerContainerStyle, children, animationType="slide", buttonLocation="top" }){
+function AppModal({visible, onCancel, onOk, innerContainerStyle, modalStyle, children, buttonLocation="top" }){
   return (
-    <Modal isVisible={visible} onBackdropPress={onCancel} style={styles.modal} animationType={animationType}>
+    <Modal isVisible={visible} onBackdropPress={onCancel} style={[styles.modal, modalStyle]}>
             <View style={[styles.innerContainer, innerContainerStyle]}>
                 {buttonLocation==='bottom' && children}
                 <View style={styles.actionButtons}>
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     innerContainer:{
         width: 300,
         height: 300,
-        backgroundColor:defaultStyles.colors.lighter,
+        backgroundColor:defaultStyles.colors.light,
         borderRadius:10,
         padding:10
     },
