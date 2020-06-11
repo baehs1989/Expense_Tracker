@@ -11,7 +11,7 @@ import AppText from "./AppText";
 import defaultStyles from "../config/styles";
 import AppModal from './AppModal'
 
-function DatePicker({placeholder, onSelect, selectedItem, width="100%"}){
+function DatePicker({placeholder, onSelectItem, selectedItem, width="100%"}){
     
     const [modalVisible, setModalVisible] = useState(false)
     const [date, setDate] = useState(new Date());
@@ -26,7 +26,7 @@ function DatePicker({placeholder, onSelect, selectedItem, width="100%"}){
         <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
             <View style={[styles.container, { width }]}>
             {selectedItem ? (
-                <AppText style={styles.text}>{selectedItem.label}</AppText>
+                <AppText style={styles.text}>{selectedItem}</AppText>
             ) : (
                 <AppText style={styles.placeholder}>{placeholder}</AppText>
             )}
@@ -43,7 +43,7 @@ function DatePicker({placeholder, onSelect, selectedItem, width="100%"}){
         <AppModal 
             visible={modalVisible} 
             onCancel={() => setModalVisible(false)}
-            onOk={() =>  {setModalVisible(false); onSelect(date)}}
+            onOk={() =>  {setModalVisible(false); onSelectItem(date)}}
             modalStyle={{
                 justifyContent:'flex-end',
             }}

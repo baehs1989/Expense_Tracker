@@ -5,17 +5,33 @@ import * as Yup from "yup";
 
 import {FormField, SubmitButton} from './'
 import Screen from '../Screen'
+import FormFlatPicker from '../forms/FormFlatPicker'
+import FormDatePicker from '../forms/FormDatePicker'
 
 const validationSchema = Yup.object().shape({
     name: Yup.string().required().label("Name"),
+    repeat: Yup.string().required().label('Repeat'),
+    startdate: Yup.string().required().label('Start Date')
 });
+
+
+const categories = [
+    {
+        label: "Monthly",
+        value: 0,
+    },
+    {
+        label: "One time",
+        value: 1,
+    }
+];
 
 function ListForm({onSubmit}){
   return (
       <Screen>
         <Formik
-            initialValues={{ name: "" }}
-            onSubmit={()=>onSubmit()}
+            initialValues={{ name: "", repeat:"", startdate:"" }}
+            onSubmit={()=>console.log("Submit")}
             validationSchema={validationSchema}
         >
             {() => 
@@ -28,7 +44,24 @@ function ListForm({onSubmit}){
                                 placeholder="Name"
                                 style={styles.field}
                             />
+
+                            <FormFlatPicker
+                                items={categories}
+                                name="repeat"
+                                placeholder="Repeat"
+                                onSelectItem={(item) => setFieldValue(name, item)}
+                                style={styles.field}
+                            />
+
+                            <FormDatePicker
+                                name="startdate"
+                                placeholder="Start Date"
+                                onSelectItem={(item) => setFieldValue(name, item)}
+                                style={styles.field}
+                            />
                         </View>
+
+
 
                         <View style={styles.buttonContainer}>
                             <SubmitButton title="Add" />

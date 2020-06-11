@@ -13,7 +13,7 @@ import defaultStyles from "../config/styles";
 import Screen from "./Screen";
 import AppModal from './AppModal'
 
-function FlatPicker({items, placeholder, onSelect, selectedItem, width="100%"}){
+function FlatPicker({items, placeholder, onSelectItem, selectedItem, width="100%"}){
     
     const [modalVisible, setModalVisible] = useState(false)
   
@@ -54,7 +54,7 @@ function FlatPicker({items, placeholder, onSelect, selectedItem, width="100%"}){
                     renderItem={({ item }) => (
                         <TouchableOpacity onPress={() => {
                             setModalVisible(false);
-                            onSelect(item)
+                            onSelectItem(item)
                         }}>
                             <AppText style={styles.optionText}>{item.label}</AppText>
                         </TouchableOpacity>
