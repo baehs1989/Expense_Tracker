@@ -1,12 +1,12 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 
-import ListNavigatior from './app/navigation/ListNavigatior'
+import ListNavigator from './app/navigation/ListNavigator'
 
 const App = () => {
   return (
     <NavigationContainer>
-      <ListNavigatior/>
+      <ListNavigator/>
     </NavigationContainer>
 
   );

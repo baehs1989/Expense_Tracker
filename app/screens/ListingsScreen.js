@@ -43,6 +43,8 @@ const initialMessages = [
 ];
 
 function ListingsScreen({navigation}) {
+  const [messages, setMessages] = useState(initialMessages);
+  const [refreshing, setRefreshing] = useState(false);
 
   return (
     <Screen>

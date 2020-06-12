@@ -1,14 +1,16 @@
 import React from 'react';
 import {View, StyleSheet, ScrollView} from 'react-native';
+
 import Screen from '../components/Screen';
 import AppText from '../components/AppText';
 import Icon from '../components/Icon';
 import {ListItem} from '../components/Lists';
 import defaultStyles from '../config/styles';
+import routes from '../navigation/routes';
 
 var iconSize = 55;
 
-function ListDetailScreen(props){
+function ListDetailScreen({navigation}){
   return (
     <Screen style={{backgroundColor:defaultStyles.colors.lighter}}>
        
@@ -38,6 +40,7 @@ function ListDetailScreen(props){
           <View style={styles.option}>
             <ListItem
               title="List"
+              onPress={() => navigation.navigate(routes.SHOPPING_LIST)}
               IconComponent={
                   <Icon
                     name="view-list"

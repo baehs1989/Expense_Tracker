@@ -78,7 +78,7 @@ const initialItems = [
     },
 ];
 
-function ShoppingListScreen(props) {
+function ShoppingListScreen({props}) {
     const [items, setItems] = useState(initialItems);
     const [selectedItem, setSelectedItem] = useState('default')
     const [openFilter, setOpenFilter] = useState(false)
