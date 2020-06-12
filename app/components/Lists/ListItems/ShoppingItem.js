@@ -123,7 +123,6 @@ const styles = StyleSheet.create({
       width:'50%',
       flexDirection:'row',
       justifyContent:'center',
-      alignContent:'center',
       alignItems:'center'
     }
 });
