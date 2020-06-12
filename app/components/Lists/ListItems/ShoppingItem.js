@@ -120,8 +120,10 @@ const styles = StyleSheet.create({
 
     },
     buyerContainer:{
-      width:120,
+      width:'50%',
       flexDirection:'row',
+      justifyContent:'center',
+      alignContent:'center',
       alignItems:'center'
     }
 });
