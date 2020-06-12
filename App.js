@@ -1,17 +1,13 @@
 import React from 'react';
-import Screen from './app/components/Screen'
+import {NavigationContainer} from '@react-navigation/native';
 
-
-import ListForm from './app/components/forms/ListForm'
-import ShoppingItemForm from './app/components/forms/ShoppingItemForm'
+import ListNavigatior from './app/navigation/ListNavigatior'
 
 const App = () => {
-
-
   return (
-    <Screen>
-      <ListForm/>
-    </Screen>
+    <NavigationContainer>
+      <ListNavigatior/>
+    </NavigationContainer>
 
   );
 };

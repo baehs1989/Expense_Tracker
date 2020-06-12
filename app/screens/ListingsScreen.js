@@ -5,6 +5,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import Icon from '../components/Icon'
 import Screen from "../components/Screen";
 import AppButton from '../components/Buttons/AppButton'
+import AppText from '../components/AppText';
 
 import {
   EventItem,
@@ -12,6 +13,7 @@ import {
 } from "../components/Lists";
 
 import ListItemDeleteAction from '../components/Lists/ListItemDeleteAction'
+import routes from '../navigation/routes'
 
 const initialMessages = [
   {
@@ -40,12 +42,14 @@ const initialMessages = [
   },
 ];
 
-function ListingsScreen(props) {
-  const [messages, setMessages] = useState(initialMessages);
-  const [refreshing, setRefreshing] = useState(false);
+function ListingsScreen({navigation}) {
 
   return (
     <Screen>
+
+      <View style={styles.headerContainer}>
+      </View>
+
       <FlatList
         data={messages}
         keyExtractor={(message) => message.id.toString()}
@@ -57,7 +61,7 @@ function ListingsScreen(props) {
             IconComponent={
                 <Icon name={item.type} backgroundColor={item.color} size={70}/>
             }
-            onPress={() => console.log("Message selected", item)}
+            onPress={()=>navigation.navigate(routes.LISTING_DETAIL, item)}
             renderRightActions={() => (
                 <ListItemDeleteAction onPress={() => console.log("Delete")} />
             )}
@@ -77,6 +81,9 @@ function ListingsScreen(props) {
 }
 
 const styles = StyleSheet.create({
+  headerContainer:{
+
+  },
   buttonContainer: {
     alignItems: 'center'
   }
