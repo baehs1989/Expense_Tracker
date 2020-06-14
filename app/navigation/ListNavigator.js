@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import ListingsScreen from '../screens/ListingsScreen';
 import ListDetailScreen from '../screens/ListDetailScreen';
 import ShoppingListScreen from '../screens/ShoppingListScreen';
+import MemberListScreen from '../screens/MemberListScreen';
 
 import routes from './routes'
 
@@ -25,6 +26,11 @@ const ListNavigatior = () => (
             name={routes.SHOPPING_LIST} 
             component={ShoppingListScreen}  
             options = {(routes) => ({title:'Shopping List'})}    
+        />
+        <Stack.Screen 
+            name={routes.MEMBER_LIST} 
+            component={MemberListScreen}  
+            options = {(routes) => ({title:'Member List'})}    
         />
     </Stack.Navigator>
 )

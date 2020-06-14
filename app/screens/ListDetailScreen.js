@@ -26,6 +26,7 @@ function ListDetailScreen({navigation}){
           <View style={styles.option}>
             <ListItem
               title="Members"
+              onPress={() => navigation.navigate(routes.MEMBER_LIST)}
               IconComponent={
                   <Icon
                     name="users"
