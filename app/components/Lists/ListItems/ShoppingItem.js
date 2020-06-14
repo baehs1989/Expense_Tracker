@@ -13,6 +13,9 @@ import colors from "../../../config/colors";
 import ListItemDeleteAction from '../ListItemDeleteAction'
 import ListItemEditAction from '../ListItemEditAction'
 import ListItemWishAction from '../ListItemWishAction'
+import { render } from "react-dom";
+
+const actionList = ["onDelete", 'onEdit', 'onWish']
 
 //extended version from ListItem(default)
 function ShoppingItem({
@@ -33,9 +36,9 @@ function ShoppingItem({
 
     return (
       [
-          <ListItemDeleteAction key="delete" size={50} onPress={()=>{onClose(); renderRightOnPress.onDelete()}} />,
-          <ListItemEditAction key="edit" size={50} onPress={()=>{onClose(); renderRightOnPress.onEdit()}}/>,
-          <ListItemWishAction key="wish" size={50} onPress={()=>{onClose(); renderRightOnPress.onWish()}}/>,      ]
+          renderRightOnPress['onDelete']?<ListItemDeleteAction key="delete" size={50} onPress={()=>{onClose(); renderRightOnPress.onDelete()}} />:null,
+          renderRightOnPress['onEdit']?<ListItemEditAction key="edit" size={50} onPress={()=>{onClose(); renderRightOnPress.onEdit()}}/>:null,
+          renderRightOnPress['onWish']?<ListItemWishAction key="wish" size={50} onPress={()=>{onClose(); renderRightOnPress.onWish()}}/>:null,      ]
     )
   
   }

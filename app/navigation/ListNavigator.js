@@ -5,6 +5,7 @@ import ListingsScreen from '../screens/ListingsScreen';
 import ListDetailScreen from '../screens/ListDetailScreen';
 import ShoppingListScreen from '../screens/ShoppingListScreen';
 import MemberListScreen from '../screens/MemberListScreen';
+import WishListScreen from '../screens/WishListScreen';
 
 import routes from './routes'
 
@@ -31,6 +32,11 @@ const ListNavigatior = () => (
             name={routes.MEMBER_LIST} 
             component={MemberListScreen}  
             options = {(routes) => ({title:'Member List'})}    
+        />
+        <Stack.Screen 
+            name={routes.WISH_LIST} 
+            component={WishListScreen}  
+            options = {(routes) => ({title:'Wish List'})}    
         />
     </Stack.Navigator>
 )

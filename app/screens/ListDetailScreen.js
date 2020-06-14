@@ -55,6 +55,7 @@ function ListDetailScreen({navigation}){
           <View style={styles.option}>
             <ListItem
               title="Wish List"
+              onPress={()=>navigation.navigate(routes.WISH_LIST)}
               IconComponent={
                   <Icon
                     name="heart"
@@ -65,20 +66,6 @@ function ListDetailScreen({navigation}){
               }
             />
           </View>
-          <View style={styles.option}>
-            <ListItem
-              title="Purchased"
-              IconComponent={
-                  <Icon
-                    name="cart"
-                    backgroundColor={defaultStyles.colors.light}
-                    iconColor="white"
-                    size={iconSize}
-                  />
-              }
-            />
-          </View>
-
           <View style={styles.option}>
             <ListItem
               title="Archive"
@@ -92,8 +79,6 @@ function ListDetailScreen({navigation}){
               }
             />
           </View>
-
-
           <View style={styles.option}>
             <ListItem
               title="Settings"
