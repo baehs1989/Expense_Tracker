@@ -69,6 +69,7 @@ function ListDetailScreen({navigation}){
           <View style={styles.option}>
             <ListItem
               title="Archive"
+              onPress={()=>navigation.navigate(routes.ARCHIVE)}
               IconComponent={
                   <Icon
                     name="archive"

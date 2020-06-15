@@ -3,5 +3,6 @@ export default Object.freeze({
     LISTING_DETAIL:'ListDetail',
     SHOPPING_LIST:'ShoppingList',
     MEMBER_LIST:'MemberList',
-    WISH_LIST:'WishList'
+    WISH_LIST:'WishList',
+    ARCHIVE:'Archive'
 })
