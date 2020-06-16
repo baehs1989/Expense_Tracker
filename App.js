@@ -2,15 +2,15 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 
 import ListNavigator from './app/navigation/ListNavigator';
-import ArchiveListScreen from './app/screens/ArchiveListScreen'
-import DeckSwiperExample from './app/components/DeckSwiperExample'
+import ListSettingScreen from './app/screens/ListSettingScreen'
+// import DeckSwiperExample from './app/components/DeckSwiperExample'
 
 const App = () => {
   return (
-    // <NavigationContainer>
-    //   <ListNavigator/>
-    // </NavigationContainer>
-    <DeckSwiperExample/>
+    <NavigationContainer>
+      <ListNavigator/>
+    </NavigationContainer>
+    // <ListSettingScreen/>
   );
 };
 

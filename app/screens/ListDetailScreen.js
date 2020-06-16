@@ -83,6 +83,7 @@ function ListDetailScreen({navigation}){
           <View style={styles.option}>
             <ListItem
               title="Settings"
+              onPress={()=>navigation.navigate(routes.LIST_SETTING)}
               IconComponent={
                   <Icon
                     name="settings"

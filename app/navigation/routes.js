@@ -4,5 +4,6 @@ export default Object.freeze({
     SHOPPING_LIST:'ShoppingList',
     MEMBER_LIST:'MemberList',
     WISH_LIST:'WishList',
-    ARCHIVE:'Archive'
+    ARCHIVE:'Archive',
+    LIST_SETTING:'Setting'
 })

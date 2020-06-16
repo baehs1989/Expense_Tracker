@@ -7,6 +7,7 @@ import ShoppingListScreen from '../screens/ShoppingListScreen';
 import MemberListScreen from '../screens/MemberListScreen';
 import WishListScreen from '../screens/WishListScreen';
 import ArchiveListScreen from '../screens/ArchiveListScreen'
+import ListSettingScreen from '../screens/ListSettingScreen'
 
 import routes from './routes'
 
@@ -44,6 +45,11 @@ const ListNavigatior = () => (
             component={ArchiveListScreen}  
             options = {(routes) => ({title:'Archive'})}    
         />        
+        <Stack.Screen 
+            name={routes.LIST_SETTING} 
+            component={ListSettingScreen}  
+            options = {(routes) => ({title:'Setting'})}    
+        />       
     </Stack.Navigator>
 )
 
