@@ -5,7 +5,8 @@ import { FontAwesome } from '@expo/vector-icons';
 import Icon from '../components/Icon'
 import Screen from "../components/Screen";
 import AppButton from '../components/Buttons/AppButton'
-import AppText from '../components/AppText';
+import AppText from "../components/AppText";
+import SearchTab from '../components/SearchTab';
 
 import {
   EventItem,
@@ -14,6 +15,7 @@ import {
 
 import ListItemDeleteAction from '../components/Lists/ListItemDeleteAction'
 import routes from '../navigation/routes'
+
 
 const initialMessages = [
   {
@@ -48,8 +50,9 @@ function ListingsScreen({navigation}) {
 
   return (
     <Screen>
-
+      
       <View style={styles.headerContainer}>
+        <SearchTab onChangeText={()=>console.log('changed')}/>
       </View>
 
       <FlatList
@@ -61,7 +64,7 @@ function ListingsScreen({navigation}) {
             subTitle={item.description}
             members={item.members}
             IconComponent={
-                <Icon name={item.type} backgroundColor={item.color} size={70}/>
+                <Icon name={item.type} backgroundColor={item.color} size={50}/>
             }
             onPress={()=>navigation.navigate(routes.LISTING_DETAIL, item)}
             renderRightActions={() => (
@@ -73,9 +76,9 @@ function ListingsScreen({navigation}) {
         refreshing={refreshing}
       />
 
-      <View style={styles.buttonContainer}>
-          <AppButton title="" onPress={()=>{}} style={{ width: 150 }} IconComponent={<FontAwesome name="plus-circle" size={25} />} />
-      </View>
+      {/* <View style={styles.buttonContainer}>
+          <AppButton title="" onPress={()=>{}} style={{ width: 100 }} IconComponent={<FontAwesome name="plus-circle" size={25} />} />
+      </View> */}
 
 
     </Screen>

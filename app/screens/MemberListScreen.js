@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 import { FlatList, StyleSheet, View, Modal } from "react-native";
-import { Searchbar } from 'react-native-paper';
 import { FontAwesome } from '@expo/vector-icons';
 
 import AppButton from '../components/Buttons/AppButton';
 import Screen from "../components/Screen";
 import AppModal from '../components/AppModal';
 import ShoppingItemForm from '../components/forms/ShoppingItemForm'
-
 import defaultStyles from '../config/styles';
-
 import AvatarItem from '../components/Lists/ListItems/AvatarItem'
 import {
     ListItemSeparator
 } from "../components/Lists";
 import ListItemDeleteAction from '../components/Lists/ListItemDeleteAction'
+import SearchTab from '../components/SearchTab'
+
 
 const initialItems = [
     {
@@ -37,11 +36,7 @@ function MemberListScreen({props}) {
     return (
         <Screen>
             <View style={styles.searchBar}>
-                <Searchbar
-                    placeholder="Search"
-                    onChangeText={() => {}}
-                    value={""}
-                />
+                <SearchTab onChangeText={()=>console.log('changed1')}/>
             </View>
 
             <FlatList

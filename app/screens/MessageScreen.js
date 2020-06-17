@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { FlatList, StyleSheet} from "react-native";
+import { FlatList, StyleSheet, View} from "react-native";
 
 import Screen from "../components/Screen";
 import ListItemDeleteAction from '../components/Lists/ListItemDeleteAction'
 import ListItem from '../components/Lists/ListItems/ListItem'
 import ListItemSeparator from '../components/Lists/ListItemSeparator'
-
+import SearchTab from '../components/SearchTab'
 
 const initialMessages = [
   {
@@ -31,6 +31,10 @@ function MessagesScreen(props) {
 
   return (
     <Screen>
+      <View>
+        <SearchTab onChangeText={()=>console.log('changed')}/>
+      </View>
+
       <FlatList
         data={messages}
         keyExtractor={(message) => message.id.toString()}

@@ -1,15 +1,10 @@
 import React, { useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
-import { Searchbar } from 'react-native-paper';
-import { FontAwesome } from '@expo/vector-icons';
 
 import AppText from '../components/AppText';
-import AppButton from '../components/Buttons/AppButton';
 import Screen from "../components/Screen";
-import IconButton from '../components/Buttons/IconButton';
-import FilterModal from '../components/FilterModal';
-import AppModal from '../components/AppModal';
-import ShoppingItemForm from '../components/forms/ShoppingItemForm'
+import SearchTab from '../components/SearchTab'
+
 
 import defaultStyles from '../config/styles';
 
@@ -47,11 +42,7 @@ function ArchiveListScreen({props}) {
     return (
         <Screen>
             <View style={styles.searchBar}>
-                <Searchbar
-                    placeholder="Search"
-                    onChangeText={() => {}}
-                    value={""}
-                />
+                <SearchTab onChangeText={()=>console.log('changed1')}/>
             </View>
 
             <View style={styles.headerContainer}>
