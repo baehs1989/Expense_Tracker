@@ -91,7 +91,11 @@ function WishListScreen({props}) {
     return (
         <Screen>
             <View style={styles.searchBar}>
-                <SearchTab onChangeText={()=>console.log('changed1')}/>
+                <SearchTab 
+                    onChangeText={()=>console.log('changed1')} 
+                    onClickFilter={() => setOpenFilter(true)}
+                    onClickSort={()=>console.log('sort')}
+                />
             </View>
 
             <View style={styles.headerContainer}>
@@ -110,14 +114,15 @@ function WishListScreen({props}) {
                         Note
                     </AppText>
                 </View>
-                <View style={styles.filter}>
+                {/* <View style={styles.filter}>
                     <IconButton
                         onPress={() => setOpenFilter(true)}
                         type="FontAwesome"
                         name="filter"
                         size={20}
                     />
-                </View>
+                </View> */}
+
 
                 <FilterModal
                     selected={selectedItem}

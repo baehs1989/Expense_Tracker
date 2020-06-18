@@ -52,7 +52,10 @@ function ListingsScreen({navigation}) {
     <Screen>
       
       <View style={styles.headerContainer}>
-        <SearchTab onChangeText={()=>console.log('changed')} onClickAdd={()=>console.log('Add')} onClickConfig={()=>console.log('config')}/>
+        <SearchTab 
+          onChangeText={()=>console.log('changed')} 
+          onClickAdd={()=>console.log('Add')}
+        />
       </View>
 
       <FlatList
