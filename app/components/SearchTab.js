@@ -3,7 +3,7 @@ import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import {FontAwesome, Ionicons} from '@expo/vector-icons'
 
-function SearchTab({onChangeText, containerColor="white", inputContainerColor="grey"}){
+function SearchTab({onChangeText, containerColor="white", inputContainerColor="grey", onClickAdd, onClickConfig}){
 
   return (
     <View style={{flexDirection:'row', backgroundColor:containerColor}}>
@@ -18,16 +18,24 @@ function SearchTab({onChangeText, containerColor="white", inputContainerColor="g
                 round
             />
         </View>
-        <View style={styles.button}>
-          <TouchableOpacity>
-            <FontAwesome name="plus-square" size={25}/>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.button}>
-          <TouchableOpacity>
-            <Ionicons name="md-settings" size={25}/>
-          </TouchableOpacity>
-        </View>
+        {
+          onClickAdd &&
+          <View style={styles.button}>
+            <TouchableOpacity>
+              <FontAwesome name="plus-square" size={25}/>
+            </TouchableOpacity>
+          </View>          
+        }
+        {
+          onClickConfig &&
+          <View style={styles.button}>
+            <TouchableOpacity>
+              <Ionicons name="md-settings" size={25}/>
+            </TouchableOpacity>
+          </View>
+        }
+
+
     </View>
   );
 }

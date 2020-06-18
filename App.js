@@ -7,14 +7,15 @@ import AppNavigator from './app/navigation/AppNavigator'
 import ListSettingScreen from './app/screens/ListSettingScreen'
 import MessageScreen from './app/screens/MessageScreen'
 
-// import DeckSwiperExample from './app/components/DeckSwiperExample'
+
+import DeckSwiperExample from './app/components/DeckSwiperExample'
 
 const App = () => {
   return (
     <NavigationContainer>
       <AppNavigator/>
     </NavigationContainer>
-    // <MessageScreen/>
+    // <DeckSwiperExample/>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, ScrollView} from 'react-native';
+import { Container, Header, View as BaseView, DeckSwiper, Card, CardItem, Thumbnail, Text, Left, Body, Icon as BaseIcon } from 'native-base';
 
 import Screen from '../components/Screen';
 import AppText from '../components/AppText';
@@ -7,19 +8,46 @@ import Icon from '../components/Icon';
 import {ListItem} from '../components/Lists';
 import defaultStyles from '../config/styles';
 import routes from '../navigation/routes';
+import DeckSwiperExample from '../components/DeckSwiperExample'
 
-var iconSize = 55;
+var iconSize = 50;
+
+const cards = [
+  {
+    text: 'Card One',
+    name: 'One',
+    image: require('../assets/background.jpg'),
+  },
+  {
+    text: 'Card Two',
+    name: 'Two',
+    image: require('../assets/background.jpg'),
+  },
+];
 
 function ListDetailScreen({navigation}){
   return (
     <Screen style={{backgroundColor:defaultStyles.colors.lighter}}>
        
-       <View style={styles.amountContainer}>
-        <View style={styles.amountCard}>
-          <AppText style={styles.amount}>$1,500</AppText>
-          <AppText style={styles.period}><AppText style={styles.periodHL}>21</AppText> Days left in billing period</AppText>
-        </View>
-       </View>
+
+          <View style={styles.amountContainer}>
+            <Container style={{height:130, backgroundColor:defaultStyles.colors.lighter}}>
+                <DeckSwiper
+                    dataSource={cards}
+                    renderItem={item =>
+                          <View style={styles.amountCard}>
+                            <AppText style={styles.amount}>$1,500</AppText>
+                            <AppText style={styles.period}><AppText style={styles.periodHL}>21</AppText> Days left in billing period</AppText>
+                          </View>
+                    }
+                  />
+
+            </Container>
+          </View>
+
+
+
+
 
       <View style={styles.optionContainer}>
         <ScrollView>
@@ -106,21 +134,22 @@ function ListDetailScreen({navigation}){
 
 const styles = StyleSheet.create({
   amountContainer:{
+    flexDirection:'row',
     alignItems:'center',
     justifyContent:'center',
-    height:'20%',
-    marginBottom:5
+    height:150
   },
   amountCard:{
     backgroundColor:defaultStyles.colors.white,
     borderRadius:25,
     alignItems:'center',
     justifyContent:'center',
-    height:150,
-    width: '90%'
+    alignSelf:'center',
+    width: '80%',
+    height: 130
   },
   amount:{
-    fontSize:45,
+    fontSize:35,
     fontWeight:'900',
     color:'green'
   },
@@ -132,7 +161,7 @@ const styles = StyleSheet.create({
     color:'red'
   },
   optionContainer:{
-    height:'80%'
+    flex:1
   },
   option: {
     marginVertical: 5,
