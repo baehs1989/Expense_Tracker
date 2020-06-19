@@ -10,6 +10,7 @@ import FilterModal from '../components/FilterModal';
 import AppModal from '../components/AppModal';
 import ShoppingItemForm from '../components/forms/ShoppingItemForm'
 import SearchTab from '../components/SearchTab'
+import ShoppingItemDetail from '../screens/ShoppingItemDetail';
 
 import defaultStyles from '../config/styles';
 
@@ -83,6 +84,7 @@ function WishListScreen({props}) {
     const [selectedItem, setSelectedItem] = useState('default')
     const [openFilter, setOpenFilter] = useState(false)
     const [openForm, setOpenForm] = useState(false)
+    const [openDetail, setOpenDetail] = useState(false)
 
     const onFilterSelect = id => {
         setSelectedItem(id)
@@ -95,6 +97,7 @@ function WishListScreen({props}) {
                     onChangeText={()=>console.log('changed1')} 
                     onClickFilter={() => setOpenFilter(true)}
                     onClickSort={()=>console.log('sort')}
+                    onClickAdd={()=>setOpenForm(true)}
                 />
             </View>
 
@@ -146,6 +149,7 @@ function WishListScreen({props}) {
                             note={item.note}
                             status={item.status}
                             buyer={item.buyer}
+                            onPress={()=>setOpenDetail(true)}
                             renderRightOnPress={{
                                 onDelete: () => console.log('Delete'),
                                 onEdit: () => console.log("Edit"),
@@ -162,11 +166,11 @@ function WishListScreen({props}) {
                 ItemSeparatorComponent={ListItemSeparator}
             />
 
-            <View 
+            {/* <View 
                 style={styles.buttonContainer}
             >
                 <AppButton title="" onPress={()=>setOpenForm(true)} style={{ width: 150 }} IconComponent={<FontAwesome name="plus-circle" size={25} />} />
-            </View>
+            </View> */}
 
             <AppModal 
                 visible={openForm} 
@@ -175,6 +179,16 @@ function WishListScreen({props}) {
                 onCancel={()=>setOpenForm(false)}
             >
                 <ShoppingItemForm onSubmit={()=>setOpenForm(false)}/>
+            </AppModal>
+
+
+            <AppModal 
+                visible={openDetail}
+                innerContainerStyle={{width:'90%', height:'50%'}}
+                // buttonLocation="top"
+                onClose={()=>setOpenDetail(false)}
+            >
+                <ShoppingItemDetail/>
             </AppModal>
 
         </Screen>

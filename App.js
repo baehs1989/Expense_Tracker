@@ -6,6 +6,7 @@ import AppNavigator from './app/navigation/AppNavigator'
 
 import ListSettingScreen from './app/screens/ListSettingScreen'
 import MessageScreen from './app/screens/MessageScreen'
+import ShoppingItemDetail from './app/screens/ShoppingItemDetail'
 
 
 import DeckSwiperExample from './app/components/DeckSwiperExample'
@@ -15,7 +16,7 @@ const App = () => {
     <NavigationContainer>
       <AppNavigator/>
     </NavigationContainer>
-    // <DeckSwiperExample/>
+    // <ShoppingItemDetail/>
   );
 };
 

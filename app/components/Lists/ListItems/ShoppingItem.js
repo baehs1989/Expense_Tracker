@@ -26,6 +26,7 @@ function ShoppingItem({
   renderRightOnPress,
   disabled,
   buyer,
+  onPress,
   status
 }) {
 
@@ -62,7 +63,7 @@ function ShoppingItem({
       renderLeftActions={renderLeftActions} 
       onSwipeableLeftOpen={onClose}
     >
-      <TouchableHighlight underlayColor={colors.light} onPress={()=>{}}>
+      <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
         <View style={[styles.container, disabled?styles.container_disabled:{}]}>
             <View style={styles.detailsContainer}>
                 <View style={styles.nameContainer}>

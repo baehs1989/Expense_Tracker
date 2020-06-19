@@ -55,6 +55,7 @@ function ListingsScreen({navigation}) {
         <SearchTab 
           onChangeText={()=>console.log('changed')} 
           onClickAdd={()=>console.log('Add')}
+          onClickJoin={()=>console.log('join')}
         />
       </View>
 

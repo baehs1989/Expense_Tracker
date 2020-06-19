@@ -23,7 +23,7 @@ function ShoppingItemDetail(props){
     <Screen>
         <View style={styles.container}>
             <View>
-                <ScrollView style={{height:'40%'}}>
+                <ScrollView style={{height:'70%'}}>
                     <View style={styles.table}>
                         <View style={styles.tr}>
                             <View style={styles.th}><AppText>Item</AppText></View>
@@ -98,13 +98,13 @@ const styles = StyleSheet.create({
     },
     th:{
         padding:10,
-        flex:1,
+        flex:2,
         borderWidth:0.5,
         borderColor:defaultStyles.colors.light
     },
     td:{
         padding:10,
-        flex:3,
+        flex:5,
         borderWidth:0.5,
         borderColor:defaultStyles.colors.light
     },

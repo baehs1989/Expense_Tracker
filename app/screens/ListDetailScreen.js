@@ -26,6 +26,18 @@ const cards = [
 ];
 
 function ListDetailScreen({navigation}){
+  const cards = [
+    <View style={styles.amountCard}>
+      <AppText style={styles.amount}>$1,500</AppText>
+      <AppText style={styles.period}><AppText style={styles.periodHL}>21</AppText> Days left in billing period</AppText>
+    </View>,
+    <View style={styles.amountCard}>
+      <AppText>Overall</AppText>
+      <AppText style={styles.amount}>$3,000</AppText>
+      <AppText style={styles.period}><AppText style={styles.periodHL}>21</AppText> Days left in billing period</AppText>
+    </View>
+  ]
+
   return (
     <Screen style={{backgroundColor:defaultStyles.colors.lighter}}>
        
@@ -35,10 +47,9 @@ function ListDetailScreen({navigation}){
                 <DeckSwiper
                     dataSource={cards}
                     renderItem={item =>
-                          <View style={styles.amountCard}>
-                            <AppText style={styles.amount}>$1,500</AppText>
-                            <AppText style={styles.period}><AppText style={styles.periodHL}>21</AppText> Days left in billing period</AppText>
-                          </View>
+                      <>
+                        {item}
+                      </>
                     }
                   />
 

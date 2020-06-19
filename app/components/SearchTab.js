@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import { SearchBar } from 'react-native-elements';
-import {FontAwesome, Ionicons, MaterialCommunityIcons} from '@expo/vector-icons'
+import {FontAwesome, Ionicons, MaterialCommunityIcons, AntDesign, MaterialIcons} from '@expo/vector-icons'
 
-function SearchTab({onChangeText, containerColor="grey", inputContainerColor="white", onClickAdd, onClickConfig, onClickFilter, onClickSort}){
+function SearchTab({onChangeText, containerColor="grey", inputContainerColor="white", onClickAdd, onClickConfig, onClickFilter, onClickSort, onClickJoin}){
 
   return (
     <View style={{flexDirection:'row', backgroundColor:containerColor, paddingHorizontal:10}}>
@@ -18,18 +18,27 @@ function SearchTab({onChangeText, containerColor="grey", inputContainerColor="wh
                 round
             />
         </View>
+
+        {
+          onClickJoin &&
+          <View style={styles.button}>
+            <TouchableOpacity onPress={onClickJoin} style={styles.buttonInner}>
+              <MaterialCommunityIcons name="login" size={25}/>
+            </TouchableOpacity>
+          </View>
+        }
         {
           onClickAdd &&
           <View style={styles.button}>
-            <TouchableOpacity onPress={onClickAdd}>
-              <FontAwesome name="plus-square" size={25}/>
+            <TouchableOpacity onPress={onClickAdd} style={styles.buttonInner}>
+              <MaterialIcons name="add-box" size={25}/>
             </TouchableOpacity>
           </View>          
         }
         {
           onClickConfig &&
           <View style={styles.button}>
-            <TouchableOpacity onPress={onClickConfig}>
+            <TouchableOpacity onPress={onClickConfig} style={styles.buttonInner}>
               <Ionicons name="md-settings" size={25}/>
             </TouchableOpacity>
           </View>
@@ -37,7 +46,7 @@ function SearchTab({onChangeText, containerColor="grey", inputContainerColor="wh
         {
           onClickFilter &&
           <View style={styles.button}>
-            <TouchableOpacity onPress={onClickFilter}>
+            <TouchableOpacity onPress={onClickFilter} style={styles.buttonInner}>
               <FontAwesome name="filter" size={25}/>
             </TouchableOpacity>
           </View>
@@ -45,12 +54,11 @@ function SearchTab({onChangeText, containerColor="grey", inputContainerColor="wh
         {
           onClickSort &&
           <View style={styles.button}>
-            <TouchableOpacity onPress={onClickSort}>
+            <TouchableOpacity onPress={onClickSort} style={styles.buttonInner}>
               <MaterialCommunityIcons name="sort" size={25}/>
             </TouchableOpacity>
           </View>
         }
-
 
     </View>
   );
@@ -60,7 +68,11 @@ const styles = StyleSheet.create({
   button:{
     justifyContent:'center', 
     alignItems:'center', 
-    padding:10
+    padding:7,
+  },
+  buttonInner:{
+    flex:1,
+    justifyContent:'center'
   }
 });
 
