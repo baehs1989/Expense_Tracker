@@ -1,6 +1,7 @@
 import React, {useRef} from "react";
 import { View, StyleSheet, TouchableHighlight } from "react-native";
 import Swipeable from "react-native-gesture-handler/Swipeable";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import AppText from "../../AppText";
 import colors from "../../../config/colors";
@@ -21,6 +22,12 @@ function ArchiveItem({
                     </AppText>
                 </View>
             </View>
+
+            <MaterialCommunityIcons
+              color={colors.medium}
+              name="chevron-right"
+              size={25}
+            />
         </View>
       </TouchableHighlight>
     </Swipeable>
