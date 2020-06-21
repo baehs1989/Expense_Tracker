@@ -41,24 +41,19 @@ function ListDetailScreen({navigation}){
   return (
     <Screen style={{backgroundColor:defaultStyles.colors.lighter}}>
        
+        <View style={styles.amountContainer}>
+          <Container style={{height:130, backgroundColor:defaultStyles.colors.lighter}}>
+              <DeckSwiper
+                  dataSource={cards}
+                  renderItem={item =>
+                    <>
+                      {item}
+                    </>
+                  }
+                />
 
-          <View style={styles.amountContainer}>
-            <Container style={{height:130, backgroundColor:defaultStyles.colors.lighter}}>
-                <DeckSwiper
-                    dataSource={cards}
-                    renderItem={item =>
-                      <>
-                        {item}
-                      </>
-                    }
-                  />
-
-            </Container>
-          </View>
-
-
-
-
+          </Container>
+        </View>
 
       <View style={styles.optionContainer}>
         <ScrollView>
@@ -156,7 +151,7 @@ const styles = StyleSheet.create({
     alignItems:'center',
     justifyContent:'center',
     alignSelf:'center',
-    width: '80%',
+    width: '85%',
     height: 130
   },
   amount:{

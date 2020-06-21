@@ -1,6 +1,7 @@
 import React from 'react';
 import {TouchableOpacity, StyleSheet} from 'react-native';
 import { MaterialCommunityIcons, FontAwesome } from "@expo/vector-icons";
+import defaultStyles from '../../config/styles'
 
 function CircleButton({
     name,
@@ -8,7 +9,7 @@ function CircleButton({
     size=30,
     type="MaterialCommunityIcons",
     iconColor = "#fff",
-    backgroundColor='white'
+    backgroundColor=defaultStyles.colors.primary
 }){
     var properties = {
         name:name,
@@ -25,8 +26,8 @@ function CircleButton({
 
   return (
     <TouchableOpacity onPress={()=>onPress()} style={[styles.buttonContainer, containerStyle]}>
-        {type==="MaterialCommunityIcons" && <MaterialCommunityIcons {...properties} />}
-        {type==='FontAwesome' && <FontAwesome {...properties}/>}
+        {type==="MaterialCommunityIcons" && <MaterialCommunityIcons {...properties} color={iconColor}/>}
+        {type==='FontAwesome' && <FontAwesome {...properties} color={iconColor}/>}
     </TouchableOpacity>
   );
 }

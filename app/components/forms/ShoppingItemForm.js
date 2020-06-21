@@ -5,6 +5,7 @@ import * as Yup from "yup";
 
 import {FormField, SubmitButton} from './'
 import Screen from '../Screen'
+import defaultStyles from '../../config/styles';
 
 const validationSchema = Yup.object().shape({
     name: Yup.string().required().label("Name"),
@@ -24,27 +25,29 @@ function ShoppingItemForm({onSubmit}){
                 <>
                     <TouchableOpacity activeOpacity={1} style={styles.container} onPressIn={Keyboard.dismiss}>
                         <View>
-                            <FormField
-                                autoCorrect={false}
-                                name="name"
-                                placeholder="Name"
-                                style={styles.field}
-                            />
-                            <FormField
-                                autoCorrect={false}
-                                name="quantity"
-                                placeholder="Quantity"
-                                keyboardType="numeric"
-                                style={styles.field}
-                            />
-                            <FormField
-                                autoCorrect={false}
-                                name="note"
-                                placeholder="Note"
-                                style={{height:100}}
-                                multiline={true}
-                                style={styles.field}
-                            />
+                            <View style={styles.inputContainer}>
+                                <FormField
+                                    autoCorrect={false}
+                                    name="name"
+                                    placeholder="Name"
+                                    style={styles.field}
+                                />
+                                <FormField
+                                    autoCorrect={false}
+                                    name="quantity"
+                                    placeholder="Quantity"
+                                    keyboardType="numeric"
+                                    style={styles.field}
+                                />
+                                <FormField
+                                    autoCorrect={false}
+                                    name="note"
+                                    placeholder="Note"
+                                    multiline={true}
+                                    style={[styles.field, {height:100}]}
+                                />
+                            </View>
+
                         </View>
 
                         <View style={styles.buttonContainer}>
@@ -68,8 +71,13 @@ const styles = StyleSheet.create({
     },
     buttonContainer:{
     },
+    inputContainer:{
+        backgroundColor:defaultStyles.colors.white,
+        padding:10,
+        borderRadius:10
+    },
     field:{
-        flex:1
+        flex:1,
     }
 });
 

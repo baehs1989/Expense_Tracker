@@ -11,6 +11,7 @@ import AppModal from '../components/AppModal';
 import ShoppingItemForm from '../components/forms/ShoppingItemForm'
 import SearchTab from '../components/SearchTab'
 import ShoppingItemDetail from '../screens/ShoppingItemDetail'
+import CircleButton from '../components/Buttons/CircleButton'
 
 import defaultStyles from '../config/styles';
 
@@ -165,15 +166,23 @@ function ShoppingListScreen({props}) {
                 ItemSeparatorComponent={ListItemSeparator}
             />
 
-            {/* <View 
+            <View 
                 style={styles.buttonContainer}
             >
-                <AppButton title="" onPress={()=>setOpenForm(true)} style={{ width: 150 }} IconComponent={<FontAwesome name="plus-circle" size={25} />} />
-            </View> */}
+                {/* <AppButton title="" onPress={()=>setOpenForm(true)} style={{ width: 150 }} IconComponent={<FontAwesome name="plus-circle" size={25} />} /> */}
+                <CircleButton
+                    name="plus-circle" 
+                    type="FontAwesome" 
+                    onPress={()=>setOpenForm(true)}
+                    size={30}
+                    backgroundColor={defaultStyles.colors.primary}
+                    iconColor="white"
+                />
+            </View>
 
             <AppModal 
                 visible={openForm} 
-                innerContainerStyle={{width:'100%', height:'90%'}}
+                innerContainerStyle={{width:'95%', height:500}}
                 buttonLocation="top"
                 onCancel={()=>setOpenForm(false)}
             >
@@ -182,7 +191,7 @@ function ShoppingListScreen({props}) {
 
             <AppModal 
                 visible={openDetail}
-                innerContainerStyle={{width:'90%', height:'50%'}}
+                innerContainerStyle={{width:'95%', height:500}}
                 // buttonLocation="top"
                 onClose={()=>setOpenDetail(false)}
             >
@@ -228,7 +237,9 @@ const styles = StyleSheet.create({
         paddingRight: 10
     },
     buttonContainer: {
-        alignItems: 'center'
+        paddingBottom:20,
+        paddingRight:20,
+        alignItems: 'flex-end'
     }
 
 });
