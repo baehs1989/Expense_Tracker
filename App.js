@@ -8,13 +8,14 @@ import ListSettingScreen from './app/screens/ListSettingScreen'
 import MessageScreen from './app/screens/MessageScreen'
 import ShoppingItemDetail from './app/screens/ShoppingItemDetail'
 import ShoppingItemForm from './app/components/forms/ShoppingItemForm'
+import JoinForm from './app/components/forms/JoinForm'
 
 const App = () => {
   return (
     <NavigationContainer>
       <AppNavigator/>
     </NavigationContainer>
-    // <ShoppingItemForm/>
+    // <JoinForm/>
   );
 };
 

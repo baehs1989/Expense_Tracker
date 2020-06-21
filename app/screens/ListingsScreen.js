@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { FlatList, StyleSheet,View } from "react-native";
-import { FontAwesome } from '@expo/vector-icons';
 
 import Icon from '../components/Icon'
 import Screen from "../components/Screen";
-import AppButton from '../components/Buttons/AppButton'
-import AppText from "../components/AppText";
 import SearchTab from '../components/SearchTab';
 
 import {
@@ -15,6 +12,9 @@ import {
 
 import ListItemDeleteAction from '../components/Lists/ListItemDeleteAction'
 import routes from '../navigation/routes'
+
+import JoinForm from '../components/forms/JoinForm'
+import AppModal from '../components/AppModal';
 
 
 const initialMessages = [
@@ -47,6 +47,7 @@ const initialMessages = [
 function ListingsScreen({navigation}) {
   const [messages, setMessages] = useState(initialMessages);
   const [refreshing, setRefreshing] = useState(false);
+  const [joinModal, setJoinModal] = useState(false);
 
   return (
     <Screen>
@@ -55,7 +56,7 @@ function ListingsScreen({navigation}) {
         <SearchTab 
           onChangeText={()=>console.log('changed')} 
           onClickAdd={()=>console.log('Add')}
-          onClickJoin={()=>console.log('join')}
+          onClickJoin={()=>setJoinModal(true)}
         />
       </View>
 
@@ -79,6 +80,14 @@ function ListingsScreen({navigation}) {
         ItemSeparatorComponent={ListItemSeparator}
         refreshing={refreshing}
       />
+
+      <AppModal
+        visible={joinModal}
+        innerContainerStyle={{width:'95%', height:250}}
+        onClose={()=>setJoinModal(false)}
+      >
+        <JoinForm/>
+      </AppModal>
 
       {/* <View style={styles.buttonContainer}>
           <AppButton title="" onPress={()=>{}} style={{ width: 100 }} IconComponent={<FontAwesome name="plus-circle" size={25} />} />

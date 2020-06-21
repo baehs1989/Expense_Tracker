@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { FlatList, StyleSheet, View, Modal } from "react-native";
-import { FontAwesome } from '@expo/vector-icons';
 
 import AppText from '../components/AppText';
-import AppButton from '../components/Buttons/AppButton';
 import Screen from "../components/Screen";
-import IconButton from '../components/Buttons/IconButton';
 import FilterModal from '../components/FilterModal';
 import AppModal from '../components/AppModal';
 import ShoppingItemForm from '../components/forms/ShoppingItemForm'

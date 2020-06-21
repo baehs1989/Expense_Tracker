@@ -13,6 +13,8 @@ function AppFormField({ name, width, backgroundColor, ...otherProps }) {
         onChangeText={handleChange(name)}
         width={width}
         backgroundColor={backgroundColor}
+        name="name"
+        placeholder="Name"
         {...otherProps}
       />
       <ErrorMessage error={errors[name]} visible={touched[name]} />
