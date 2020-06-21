@@ -183,7 +183,7 @@ function WishListScreen({props}) {
 
             <AppModal 
                 visible={openForm} 
-                innerContainerStyle={{width:'100%', height:'90%'}}
+                innerContainerStyle={{width:'95%', height:550}}
                 buttonLocation="top"
                 onCancel={()=>setOpenForm(false)}
             >
@@ -193,7 +193,7 @@ function WishListScreen({props}) {
 
             <AppModal 
                 visible={openDetail}
-                innerContainerStyle={{width:'90%', height:'50%'}}
+                innerContainerStyle={{width:'95%', height:550}}
                 // buttonLocation="top"
                 onClose={()=>setOpenDetail(false)}
             >

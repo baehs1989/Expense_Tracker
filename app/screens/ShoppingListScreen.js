@@ -191,7 +191,7 @@ function ShoppingListScreen({props}) {
 
             <AppModal 
                 visible={openDetail}
-                innerContainerStyle={{width:'95%', height:500}}
+                innerContainerStyle={{width:'95%', height:550}}
                 // buttonLocation="top"
                 onClose={()=>setOpenDetail(false)}
             >

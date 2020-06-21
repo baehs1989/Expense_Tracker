@@ -70,6 +70,8 @@ const styles = StyleSheet.create({
         justifyContent:"space-between"
     },
     buttonContainer:{
+        flex:1,
+        justifyContent:'center'
     },
     inputContainer:{
         backgroundColor:defaultStyles.colors.white,
