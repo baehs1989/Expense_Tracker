@@ -7,6 +7,6 @@ export default Object.freeze({
     MEMBER_LIST:'MemberList',
     WISH_LIST:'WishList',
     ARCHIVE:'Archive',
-    LIST_SETTING:'Setting',
-    ACCOUNT:'Account'
+    LIST_SETTING:'Settings',
+    ACCOUNT:'Settings'
 })

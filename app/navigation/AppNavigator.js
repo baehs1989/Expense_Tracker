@@ -21,18 +21,18 @@ const AppNavigator = () => (
         />
 
         <Tab.Screen 
-            name={routes.ACCOUNT} 
-            component={AccountScreen}
-            options={{
-                tabBarIcon: ({size, color}) => <MaterialCommunityIcons name="account" color={color} size={size}/>
-            }}
-        />
-
-        <Tab.Screen 
             name={routes.MESSAGE} 
             component={MessageScreen}
             options={{
                 tabBarIcon: ({size, color}) => <BadgeIcon color={color} size={size}/>
+            }}
+        />
+
+        <Tab.Screen 
+            name={routes.ACCOUNT} 
+            component={AccountScreen}
+            options={{
+                tabBarIcon: ({size, color}) => <MaterialCommunityIcons name="settings" color={color} size={size}/>
             }}
         />
 
