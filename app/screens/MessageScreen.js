@@ -10,14 +10,15 @@ import SearchTab from '../components/SearchTab'
 const initialMessages = [
   {
     id: 1,
-    title: "Mosh Hamedani",
-    description: "Hey! Is this item still available?",
+    title: "Your monthly bill is ready for Greenview ave..",
+    description: "2020-02-25",
+    groupID:1
   },
   {
     id: 2,
-    title: "Mosh Hamedani",
-    description:
-      "I'm interested in this item. When will you be able to post it?",
+    title: "Your bill is ready for 2019 Sadari summer tournament.",
+    description:"2020-02-01",
+    groupID:2
   },
 ];
 
