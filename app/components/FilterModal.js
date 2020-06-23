@@ -1,8 +1,7 @@
 import React from 'react';
 import { Container, Content, ListItem, Text, Radio, Right, Left, Footer } from 'native-base';
-import {View, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 
-import AppText from '../components/AppText';
 import AppModal from '../components/AppModal';
 
 function FilterModal({visible, filters, onSelect, onCancel, onOk, selected}){
@@ -13,7 +12,7 @@ function FilterModal({visible, filters, onSelect, onCancel, onOk, selected}){
                 {
                     filters.map(filter => {
                         return (
-                            <ListItem key={filter.id} onPress={()=>onSelect(filter.id)}>
+                            <ListItem key={filter.id} onPress={()=>onSelect(filter.id, filter.label)}>
                                 <Left>
                                     <Text>{filter.label}</Text>
                                 </Left>

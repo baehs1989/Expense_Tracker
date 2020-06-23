@@ -14,6 +14,7 @@ import ListItemDeleteAction from '../components/Lists/ListItemDeleteAction'
 import routes from '../navigation/routes'
 
 import JoinForm from '../components/forms/JoinForm'
+import GroupForm from '../components/forms/GroupForm'
 import AppModal from '../components/AppModal';
 
 
@@ -48,6 +49,7 @@ function ListingsScreen({navigation}) {
   const [messages, setMessages] = useState(initialMessages);
   const [refreshing, setRefreshing] = useState(false);
   const [joinModal, setJoinModal] = useState(false);
+  const [createModal, setCreateModal] = useState(false);
 
   return (
     <Screen>
@@ -55,7 +57,7 @@ function ListingsScreen({navigation}) {
       <View style={styles.headerContainer}>
         <SearchTab 
           onChangeText={()=>console.log('changed')} 
-          onClickAdd={()=>console.log('Add')}
+          onClickAdd={()=>setCreateModal(true)}
           onClickJoin={()=>setJoinModal(true)}
         />
       </View>
@@ -87,6 +89,14 @@ function ListingsScreen({navigation}) {
         onClose={()=>setJoinModal(false)}
       >
         <JoinForm/>
+      </AppModal>
+
+      <AppModal
+        visible={createModal}
+        innerContainerStyle={{width:'95%', height:300}}
+        onClose={()=>setCreateModal(false)}
+      >
+        <GroupForm/>
       </AppModal>
 
       {/* <View style={styles.buttonContainer}>

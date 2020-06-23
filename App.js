@@ -9,13 +9,13 @@ import MessageScreen from './app/screens/MessageScreen'
 import ShoppingItemDetail from './app/screens/ShoppingItemDetail'
 import ShoppingItemForm from './app/components/forms/ShoppingItemForm'
 import JoinForm from './app/components/forms/JoinForm'
+import GroupForm from './app/components/forms/GroupForm'
 
 const App = () => {
   return (
     <NavigationContainer>
       <AppNavigator/>
     </NavigationContainer>
-    // <JoinForm/>
   );
 };
 
