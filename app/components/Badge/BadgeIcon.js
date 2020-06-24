@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import IconBadge from 'react-native-icon-badge';
-import {Ionicons} from '@expo/vector-icons'
+import {Ionicons, FontAwesome5} from '@expo/vector-icons'
 
 function BadgeIcon({size, color}){
   return (
@@ -16,7 +16,7 @@ function BadgeIcon({size, color}){
                             alignItems:'center'
                         }
                     }>
-                        <Ionicons name="md-notifications" size={size} color={color}/>
+                        <FontAwesome5 name="file-invoice" size={size} color={color}/>
                     </View>
                     
                 }

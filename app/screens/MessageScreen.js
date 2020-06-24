@@ -6,6 +6,7 @@ import ListItemDeleteAction from '../components/Lists/ListItemDeleteAction'
 import ListItem from '../components/Lists/ListItems/ListItem'
 import ListItemSeparator from '../components/Lists/ListItemSeparator'
 import SearchTab from '../components/SearchTab'
+import routes from '../navigation/routes';
 
 const initialMessages = [
   {
@@ -22,8 +23,9 @@ const initialMessages = [
   },
 ];
 
-function MessagesScreen(props) {
+function MessagesScreen({navigation}) {
   const [messages, setMessages] = useState(initialMessages);
+  
 
   const handleDelete = (message) => {
     // Delete the message from messages
@@ -43,7 +45,7 @@ function MessagesScreen(props) {
           <ListItem
             title={item.title}
             subTitle={item.description}
-            onPress={() => console.log("Message selected", item)}
+            onPress={() => navigation.navigate(routes.MESSAGE_DETAILS)}
             renderRightActions={() => (
                 <ListItemDeleteAction onPress={() => console.log("Delete")} />
             )}

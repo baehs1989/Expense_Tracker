@@ -10,12 +10,14 @@ import ShoppingItemDetail from './app/screens/ShoppingItemDetail'
 import ShoppingItemForm from './app/components/forms/ShoppingItemForm'
 import JoinForm from './app/components/forms/JoinForm'
 import GroupForm from './app/components/forms/GroupForm'
+import MessageDetailScreen from './app/screens/MessageDetailScreen'
 
 const App = () => {
   return (
     <NavigationContainer>
       <AppNavigator/>
     </NavigationContainer>
+    // <MessageDetailScreen/>
   );
 };
 
