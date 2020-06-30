@@ -18,12 +18,12 @@ const ListNavigatior = () => (
         <Stack.Screen 
             name={routes.LISTING} 
             component={ListingsScreen} 
-            options={{headerShown:false}}
+            options={{headerShown:false, title:""}}
         />
         <Stack.Screen 
             name={routes.LISTING_DETAIL} 
             component={ListDetailScreen}  
-            options = {(routes) => ({title:'Test'})}    
+            options = {(routes) => {return {title:routes.route.params.title}}}    
         />
         <Stack.Screen 
             name={routes.SHOPPING_LIST} 

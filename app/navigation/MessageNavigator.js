@@ -21,7 +21,9 @@ const MessageNavigator = () => (
         <Stack.Screen 
             name={routes.MESSAGE_DETAILS} 
             component={MessageDetailScreen}  
-            options = {(routes) => ({title:'Test'})}    
+            options = {{
+                title:''
+            }}    
         />
     </Stack.Navigator>
 )

@@ -12,7 +12,7 @@ function SearchTab({onChangeText, containerColor=defaultStyles.colors.light, inp
             <SearchBar
                 placeholder="Type Here..."
                 onChangeText={onChangeText}
-                value={"search"}
+                value={"Search"}
                 containerStyle={{backgroundColor:containerColor, borderTopColor: 'transparent', borderBottomColor: 'transparent', padding:5}}
                 inputContainerStyle={{backgroundColor:inputContainerColor}}
                 inputStyle={{}}

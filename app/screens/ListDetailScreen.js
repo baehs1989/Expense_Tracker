@@ -8,22 +8,8 @@ import Icon from '../components/Icon';
 import {ListItem} from '../components/Lists';
 import defaultStyles from '../config/styles';
 import routes from '../navigation/routes';
-import DeckSwiperExample from '../components/DeckSwiperExample'
 
 var iconSize = 50;
-
-const cards = [
-  {
-    text: 'Card One',
-    name: 'One',
-    image: require('../assets/background.jpg'),
-  },
-  {
-    text: 'Card Two',
-    name: 'Two',
-    image: require('../assets/background.jpg'),
-  },
-];
 
 function ListDetailScreen({navigation}){
   const cards = [
@@ -74,7 +60,7 @@ function ListDetailScreen({navigation}){
           </View>
           <View style={styles.option}>
             <ListItem
-              title="List"
+              title="Shopping List"
               onPress={() => navigation.navigate(routes.SHOPPING_LIST)}
               IconComponent={
                   <Icon
