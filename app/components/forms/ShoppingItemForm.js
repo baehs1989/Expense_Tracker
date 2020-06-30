@@ -30,12 +30,14 @@ function ShoppingItemForm({onSubmit}){
                                     autoCorrect={false}
                                     name="name"
                                     placeholder="Name"
+                                    backgroundColor="white"
                                     style={styles.field}
                                 />
                                 <FormField
                                     autoCorrect={false}
                                     name="quantity"
                                     placeholder="Quantity"
+                                    backgroundColor="white"
                                     keyboardType="numeric"
                                     style={styles.field}
                                 />
@@ -43,6 +45,7 @@ function ShoppingItemForm({onSubmit}){
                                     autoCorrect={false}
                                     name="note"
                                     placeholder="Note"
+                                    backgroundColor="white"
                                     multiline={true}
                                     style={[styles.field, {height:100}]}
                                 />
@@ -74,7 +77,7 @@ const styles = StyleSheet.create({
         justifyContent:'center'
     },
     inputContainer:{
-        backgroundColor:defaultStyles.colors.white,
+        backgroundColor:defaultStyles.colors.light,
         padding:10,
         borderRadius:10
     },

@@ -17,8 +17,7 @@ function AvatarItem({
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
         <View style={styles.container}>
-          {IconComponent}
-          {image && <Image style={styles.image} source={image} />}
+          {image ? <Image style={styles.image} source={image} />: IconComponent}
           <View style={styles.detailsContainer}>
             <AppText style={styles.title} numberOfLines={1}>
               {name}

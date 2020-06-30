@@ -1,9 +1,10 @@
 import React from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import { SearchBar } from 'react-native-elements';
-import {FontAwesome, Ionicons, MaterialCommunityIcons, AntDesign, MaterialIcons} from '@expo/vector-icons'
+import {FontAwesome, Ionicons, MaterialCommunityIcons, MaterialIcons} from '@expo/vector-icons'
+import defaultStyles from '../config/styles'
 
-function SearchTab({onChangeText, containerColor="grey", inputContainerColor="white", onClickAdd, onClickConfig, onClickFilter, onClickSort, onClickJoin}){
+function SearchTab({onChangeText, containerColor=defaultStyles.colors.light, inputContainerColor="white", onClickAdd, onClickConfig, onClickFilter, onClickSort, onClickJoin}){
 
   return (
     <View style={{flexDirection:'row', backgroundColor:containerColor, paddingHorizontal:10}}>

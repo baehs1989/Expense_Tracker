@@ -13,7 +13,7 @@ import {
 } from "../components/Lists";
 import ListItemDeleteAction from '../components/Lists/ListItemDeleteAction'
 import SearchTab from '../components/SearchTab'
-
+import Icon from '../components/Icon'
 
 const initialItems = [
     {
@@ -55,7 +55,15 @@ function MemberListScreen({props}) {
                             onLeftSwipe={{
                                 onBuy: () => console.log("Buy")
                             }}
-                            image={item.image}
+                            // image={item.image}
+                            IconComponent={
+                                <Icon
+                                    name="account"
+                                    backgroundColor={defaultStyles.colors.light}
+                                    iconColor="white"
+                                    size={50}
+                                />
+                            }
                             renderRightActions={() => <ListItemDeleteAction onPress={() => console.log(item)} />}
                         />
                     )
