@@ -2,9 +2,7 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {MaterialCommunityIcons, FontAwesome} from '@expo/vector-icons'
 
-import AppText from '../components/AppText'
 import AccountScreen from '../screens/AccountScreen';
-import MessageScreen from '../screens/MessageScreen';
 import routes from '../navigation/routes'
 import ListNavigator from '../navigation/ListNavigator'
 import MessageNavigator from '../navigation/MessageNavigator'

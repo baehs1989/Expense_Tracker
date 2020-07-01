@@ -10,5 +10,9 @@ export default Object.freeze({
     WISH_LIST:'WishList',
     ARCHIVE:'Archive',
     LIST_SETTING:'Settings',
-    ACCOUNT:'Settings'
+    ACCOUNT:'Settings',
+
+    WELCOME:"Welcome",
+    LOGIN:"Login",
+    REGISTER:"Register"
 })
