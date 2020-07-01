@@ -21,7 +21,7 @@ function BadgeIcon({size, color}){
                     
                 }
             BadgeElement={
-                    <Text style={{color:'#FFFFFF', fontSize:size/2.5, fontWeight:'bold'}}>{"+99"}</Text>
+                    <Text style={{color:'#FFFFFF', fontSize:size/2.5, fontWeight:'bold'}}>{"2"}</Text>
                 }
             IconBadgeStyle={
                     {

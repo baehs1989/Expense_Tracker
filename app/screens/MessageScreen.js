@@ -3,7 +3,7 @@ import { FlatList, StyleSheet, View} from "react-native";
 
 import Screen from "../components/Screen";
 import ListItemDeleteAction from '../components/Lists/ListItemDeleteAction'
-import ListItem from '../components/Lists/ListItems/ListItem'
+import MessageItem from '../components/Lists/ListItems/MessageItem'
 import ListItemSeparator from '../components/Lists/ListItemSeparator'
 import SearchTab from '../components/SearchTab'
 import routes from '../navigation/routes';
@@ -42,7 +42,7 @@ function MessagesScreen({navigation}) {
         data={messages}
         keyExtractor={(message) => message.id.toString()}
         renderItem={({ item }) => (
-          <ListItem
+          <MessageItem
             title={item.title}
             subTitle={item.description}
             onPress={() => navigation.navigate(routes.MESSAGE_DETAILS)}

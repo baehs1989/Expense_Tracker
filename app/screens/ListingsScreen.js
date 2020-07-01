@@ -21,25 +21,25 @@ import AppModal from '../components/AppModal';
 const initialMessages = [
   {
     id: 1,
-    title: " 26 Olive Ave.26 Olive Ave.26 Olive Ave.26 Olive Ave.26 Olive Ave.",
-    description: "Alex Bae, Shin Yeong Kim",
-    members:999,
+    title: " 26 Olive Ave.",
+    description: "Alex Bae, Jenna Kim",
+    members:2,
     type:'home',
     color:'darkseagreen'
   },
   {
     id: 2,
-    title: "Greenview Ave.",
-    description: "Jin Soo, Hyung Soo",
+    title: "15 Greenview Ave.",
+    description: "Jake, Alex",
     members:2,
     type:'home',
     color:'darkseagreen'
   },
   {
     id: 3,
-    title: "Sadari Meeting",
-    description: "Jin Soo, Hyung Soo, Ozzy, Choi, Sadari Man",
-    members:10,
+    title: "BBQ Party",
+    description: "Alex Bae, Ozzy, Jason, Sadari Man",
+    members:4,
     type:'calendar',
     color:'gold'
   },
