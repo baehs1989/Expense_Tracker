@@ -1,11 +1,11 @@
 import React, {useState} from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Image } from "react-native";
 import * as Yup from "yup";
 
 import Screen from "../components/Screen";
 import { Form, FormField, SubmitButton } from "../components/forms";
-
 import ErrorMessage from '../components/forms/ErrorMessage'
+import firebase from '../firebase/firebase';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label("Name"),
@@ -17,11 +17,26 @@ function RegisterScreen() {
   const [error, setError] = useState()
 
   const handleSubmit = async (userInfo) => {
+    console.log(userInfo)
+    firebase.auth().createUserWithEmailAndPassword(userInfo.email, userInfo.password).then(user=>{
+      firebase.firestore().collection("User").doc(user.user.uid).set({
+        email:userInfo.email,
+        name:userInfo.name,
+        uid:user.user.uid
+      })
+      
+    }).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(errorCode, errorMessage)
+    });
   }
 
   return (
     <>
       <Screen style={styles.container}>
+        <Image style={styles.logo} source={require("../assets/logo.png")} />
         <Form
           initialValues={{ name: "", email: "", password: "" }}
           onSubmit={handleSubmit}
@@ -66,6 +81,13 @@ function RegisterScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+  },
+  logo: {
+    width: 80,
+    height: 80,
+    alignSelf: "center",
+    marginTop: 50,
+    marginBottom: 20,
   },
   field:{
       flex:1

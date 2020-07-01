@@ -4,23 +4,32 @@ import * as Yup from "yup";
 
 import Screen from "../components/Screen";
 import { Form, FormField, SubmitButton, ErrorMessage } from "../components/forms";
-import defaultStyles from '../config/styles'
+import firebase from '../firebase/firebase'
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(4).label("Password"),
 });
 
+
 function LoginScreen(props) {
   const [loginFailed, setLoginFailed] = useState(false)
 
   const handleSubmit = async ({email, password}) =>{
-
+    firebase.auth().signInWithEmailAndPassword(email, password).then(user=>{
+        firebase.firestore().collection("User").doc(user.user.uid).get().then(function(doc){
+            console.log(doc.data())
+        })
+    }).catch(error=>{
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode, errorMessage)
+    })
   }
 
   return (
     <Screen style={styles.container}>
-      {/* <Image style={styles.logo} source={require("../assets/logo-red.png")} /> */}
+      <Image style={styles.logo} source={require("../assets/logo.png")} />
 
       <Form
         initialValues={{ email: "", password: "" }}
