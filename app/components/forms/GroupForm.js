@@ -9,39 +9,53 @@ import defaultStyles from '../../config/styles'
 import AppText from '../AppText';
 import AppModal from '../AppModal';
 import FilterModal from '../FilterModal'
+import ErrorMessage from './ErrorMessage'
 
 const types = [
     {
-        id:'oneTime',
+        id:'onetime',
         label:'One Time Event'
     },
     {
-        id:'Monthly',
+        id:'monthly',
         label:'Monthly Event'
     }
 ]
 
 
-function GroupForm(props){
+function GroupForm({onSubmit}){
   const [typeModal, setTypeModal]= useState(false)
   const [selectedType, setSelectedType] = useState(null)
   const [selectedLabel, setSelectedLabel] = useState(null)
+  const [title, setTitle] = useState(null)
+  const [formError, setFormError] = useState(false);
 
   const onTypeSelect = (id,label) => {
     setSelectedType(id)
     setSelectedLabel(label)
-}
+  }
+
+  const onHandleSubmit = () => {
+    if (title && selectedType) {
+        onSubmit({title, type:selectedType})
+        return
+    }
+    setFormError(true)
+  }
 
   return (
     <Screen>
         <View>
+            <ErrorMessage error="Please fill in all missing fields." visible={formError && (!title || !selectedType)}/>
             <View>
                 <TextInput
-                    onChangeText={()=>console.log("Change")}
+                    onChangeText={(text)=>setTitle(text)}
                     width={'100%'}
                     backgroundColor={defaultStyles.colors.white}
                     placeholder="Title"
                     style={styles.field}
+                    value={title}
+                    error={formError&&!title}
                 />
             </View>
             <View>
@@ -51,6 +65,7 @@ function GroupForm(props){
                     placeholder={"Please select the type"}
                     selectedItem={selectedLabel?{label:selectedLabel}:null}
                     width={'100%'}
+                    error={formError && !selectedType}
                 />
             </View>
 
@@ -64,7 +79,7 @@ function GroupForm(props){
             />
 
             <View style={styles.buttonContainer}>
-                <AppButton title="Create"/>
+                <AppButton onPress={onHandleSubmit} title="Create"/>
             </View>
         </View>
     </Screen>
@@ -75,7 +90,7 @@ const styles = StyleSheet.create({
     buttonContainer:{
     },
     field:{
-        flex:1,
+        flex:1
     }
 
 });

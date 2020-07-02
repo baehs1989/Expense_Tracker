@@ -51,6 +51,16 @@ function ListingsScreen({navigation}) {
   const [joinModal, setJoinModal] = useState(false);
   const [createModal, setCreateModal] = useState(false);
 
+  const handleGroupCreate = (new_group) => {
+    console.log(new_group)
+    setCreateModal(false)
+  }
+
+  const handleGroupJoin = (new_group) => {
+    console.log(new_group)
+    setJoinModal(false)
+  }
+
   return (
     <Screen>
       
@@ -88,7 +98,7 @@ function ListingsScreen({navigation}) {
         innerContainerStyle={{width:'95%', height:250}}
         onClose={()=>setJoinModal(false)}
       >
-        <JoinForm/>
+      <JoinForm onSubmit={handleGroupJoin}/>
       </AppModal>
 
       <AppModal
@@ -96,7 +106,7 @@ function ListingsScreen({navigation}) {
         innerContainerStyle={{width:'95%', height:300}}
         onClose={()=>setCreateModal(false)}
       >
-        <GroupForm/>
+        <GroupForm onSubmit={handleGroupCreate}/>
       </AppModal>
 
       {/* <View style={styles.buttonContainer}>

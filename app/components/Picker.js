@@ -24,13 +24,14 @@ function AppPicker({
   placeholder,
   selectedItem,
   width = "100%",
+  error = false
 }) {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <>
       <TouchableOpacity onPress={onPress?onPress : () => setModalVisible(true)}>
-        <View style={[styles.container, { width }]}>
+        <View style={[styles.container, { width }, error?{borderColor:'red', borderWidth:3}:null]}>
           {icon && (
             <MaterialCommunityIcons
               name={icon}
