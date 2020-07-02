@@ -1,27 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
+import {AppLoading} from 'expo';
 
-import ListNavigator from './app/navigation/ListNavigator';
 import AppNavigator from './app/navigation/AppNavigator'
 import AuthNavigator from './app/navigation/AuthNavigator'
 
-import ListSettingScreen from './app/screens/ListSettingScreen'
-import MessageScreen from './app/screens/MessageScreen'
-import ShoppingItemDetail from './app/screens/ShoppingItemDetail'
-import ShoppingItemForm from './app/components/forms/ShoppingItemForm'
-import JoinForm from './app/components/forms/JoinForm'
-import GroupForm from './app/components/forms/GroupForm'
-import MessageDetailScreen from './app/screens/MessageDetailScreen'
-import WelcomeScreen from './app/screens/WelcomeScreen'
+import AuthContext from './app/auth/context';
+import authStorage from './app/auth/storage';
 
 const App = () => {
+  const [user, setUser] = useState()
+  const [isReady, setIsReady] = useState(false)
+
+  const restoreUser = async () => {
+    const user = await authStorage.getUser();
+    if (user) setUser(user)
+  }
+
+  if (!isReady){
+    return(
+      <AppLoading startAsync={restoreUser} onFinish={()=>setIsReady(true)}/>
+    )
+  }
+
   return (
-    // <NavigationContainer>
-    //   <AppNavigator/>
-    // </NavigationContainer>
-    <NavigationContainer>
-      <AuthNavigator/>
-    </NavigationContainer>
+    <AuthContext.Provider value={{user, setUser}}>
+      <NavigationContainer>
+        {user?<AppNavigator/>:<AuthNavigator/>}
+      </NavigationContainer>
+    </AuthContext.Provider>
   );
 };
 

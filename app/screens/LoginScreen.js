@@ -4,7 +4,8 @@ import * as Yup from "yup";
 
 import Screen from "../components/Screen";
 import { Form, FormField, SubmitButton, ErrorMessage } from "../components/forms";
-import firebase from '../firebase/firebase'
+import firebase from '../firebase/firebase';
+import userAuth from '../auth/userAuth';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -14,11 +15,12 @@ const validationSchema = Yup.object().shape({
 
 function LoginScreen(props) {
   const [loginFailed, setLoginFailed] = useState(false)
+  const {logIn} = userAuth()
 
   const handleSubmit = async ({email, password}) =>{
     firebase.auth().signInWithEmailAndPassword(email, password).then(user=>{
         firebase.firestore().collection("User").doc(user.user.uid).get().then(function(doc){
-            console.log(doc.data())
+            logIn(doc.data())
         })
     }).catch(error=>{
         var errorCode = error.code;
