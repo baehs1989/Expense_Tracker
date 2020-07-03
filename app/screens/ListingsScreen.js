@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FlatList, StyleSheet,View } from "react-native";
 
 import Icon from '../components/Icon'
 import Screen from "../components/Screen";
 import SearchTab from '../components/SearchTab';
+import firebase from '../firebase/firebase';
+import userAuth from '../auth/userAuth';
 
 import {
   EventItem,
@@ -50,6 +52,9 @@ function ListingsScreen({navigation}) {
   const [refreshing, setRefreshing] = useState(false);
   const [joinModal, setJoinModal] = useState(false);
   const [createModal, setCreateModal] = useState(false);
+  const [members, setMembers] = useState({})
+  const [groups, setGroups] = useState([])
+  const {user} = userAuth()
 
   const handleGroupCreate = (new_group) => {
     console.log(new_group)
@@ -60,6 +65,47 @@ function ListingsScreen({navigation}) {
     console.log(new_group)
     setJoinModal(false)
   }
+
+  const loadGroup = async() =>{
+    let groups = await firebase.firestore().collection("Group").where('__name__', 'in', user.groups).get().then(snapshot=>{
+      let groups = snapshot.docs.map(doc=>doc.data())
+      setGroups(groups)
+      return groups
+    })
+
+    let promises = []
+    groups.forEach(async(group)=>{
+      promises.push(
+        new Promise((resolve,reject) => {
+          firebase.firestore().collection("User").where('__name__', 'in', group.members).get().then(snapshot=>{
+            resolve(snapshot.docs.map(doc=>{
+              return {
+                id : doc.id,
+                ...doc.data()
+              }
+            }))
+          })
+        })
+      )
+    })
+
+    Promise.all(promises).then(values => {
+      let members = {}
+      for (let x of values){
+        for (let y of x){
+          members[y.id] = y
+        }
+      }
+      setMembers(members)
+    })
+  }
+
+  useEffect(()=>{
+    loadGroup()
+  },[])
+
+  console.log("Group", groups)
+  console.log('Members', members)
 
   return (
     <Screen>
