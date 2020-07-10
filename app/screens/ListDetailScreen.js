@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, ScrollView} from 'react-native';
+import {View, StyleSheet, ScrollView, Dimensions} from 'react-native';
 import { Container, Header, View as BaseView, DeckSwiper, Card, CardItem, Thumbnail, Text, Left, Body, Icon as BaseIcon } from 'native-base';
 
 import Screen from '../components/Screen';
@@ -10,6 +10,7 @@ import defaultStyles from '../config/styles';
 import routes from '../navigation/routes';
 
 var iconSize = 50;
+const window = Dimensions.get('window')
 
 function ListDetailScreen({navigation}){
   const cards = [
@@ -27,7 +28,7 @@ function ListDetailScreen({navigation}){
   return (
     <Screen style={{backgroundColor:defaultStyles.colors.lighter}}>
        
-        <View style={styles.amountContainer}>
+        {/* <View style={styles.amountContainer}>
           <Container style={{height:130, backgroundColor:defaultStyles.colors.lighter}}>
               <DeckSwiper
                   dataSource={cards}
@@ -39,10 +40,27 @@ function ListDetailScreen({navigation}){
                 />
 
           </Container>
+        </View> */}
+
+      <View style={styles.containerStyle} >
+        <View style={styles.sliderContainerStyle} >
+          {/* <View style={styles.slider}>
+          </View> */}
         </View>
+      </View>
+
+      <View style={{width:'100%', alignItems:'center', paddingVertical:20}}>
+        <AppText style={{fontSize:45, fontWeight:'900', color:'green'}}>$3,000</AppText>
+        <AppText style={{fontSize:20}}>Overall Balance</AppText>
+      </View>
+
+      <View style={styles.amountCard}>
+        <AppText style={styles.amount}>$1,500</AppText>
+        <AppText style={styles.period}><AppText style={styles.periodHL}>21</AppText> Days left in billing period</AppText>
+      </View> 
 
       <View style={styles.optionContainer}>
-        <ScrollView>
+        <ScrollView style={styles.scrollView}>
           <View style={styles.option}>
             <ListItem
               title="Members"
@@ -114,9 +132,10 @@ function ListDetailScreen({navigation}){
               }
             />
           </View>
-
-
         </ScrollView>
+
+
+
       </View>
 
 
@@ -133,12 +152,12 @@ const styles = StyleSheet.create({
   },
   amountCard:{
     backgroundColor:defaultStyles.colors.white,
-    borderRadius:25,
+    borderRadius:10,
     alignItems:'center',
     justifyContent:'center',
     alignSelf:'center',
-    width: '85%',
-    height: 130
+    width: '80%',
+    height: 100
   },
   amount:{
     fontSize:35,
@@ -155,9 +174,39 @@ const styles = StyleSheet.create({
   optionContainer:{
     flex:1
   },
+  scrollView:{
+    marginTop:10
+  },
   option: {
     marginVertical: 5,
   },
+
+  containerStyle: {
+    alignSelf: 'center',
+    width: window.width,
+    overflow: 'hidden',
+    height: 200,
+    position:'absolute'
+},
+sliderContainerStyle: {
+    borderRadius: window.width * 1.5,
+    width: window.width * 3,
+    height: window.width * 3,
+    marginLeft: -(window.width / 1),
+    position: 'absolute',
+    bottom: 0,
+    overflow: 'hidden',
+    backgroundColor:'red'
+},
+// slider: {
+//     height: window.width / 1.7,
+//     width: window.width,
+//     position: 'absolute',
+//     bottom: 0,
+//     marginLeft: window.width / 2,
+//     backgroundColor: '#9DD6EB'
+// }
+
 });
 
 export default ListDetailScreen;
