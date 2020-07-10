@@ -196,7 +196,7 @@ sliderContainerStyle: {
     position: 'absolute',
     bottom: 0,
     overflow: 'hidden',
-    backgroundColor:'red'
+    backgroundColor:defaultStyles.colors.light
 },
 // slider: {
 //     height: window.width / 1.7,
